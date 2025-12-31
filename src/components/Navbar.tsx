@@ -55,6 +55,17 @@ const products: Product[] = [
     gradient: 'gradient-blue',
     status: 'Beta',
   },
+  {
+    name: 'StyleAI',
+    tagline: 'Virtual Fashion & AI Styling',
+    fullDescription: 'StyleAI is your revolutionary virtual try-on platform powered by cutting-edge AI. Experience clothes virtually, get personalized style recommendations, analyze fashion trends, and make confident style choices with AI-powered insights.',
+    features: ['Virtual try-on technology', 'AI style recommendations', 'Fashion trend analysis', 'Personalized wardrobe', 'Smart outfit suggestions'],
+    link: 'http://styleai.evolune.in/',
+    androidLink: 'https://play.google.com/store/apps/details?id=com.styleai.evolune',
+    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
+    gradient: 'gradient-pink',
+    status: 'Live',
+  },
 ];
 
 const Navbar: React.FC = () => {
@@ -190,33 +201,51 @@ const Navbar: React.FC = () => {
                         <p>{selectedProduct.tagline}</p>
                       </div>
                     </div>
-                    {/* Show app store buttons for Cal Coach, single link for others */}
-                    {selectedProduct.androidLink && selectedProduct.iosLink ? (
+                    {/* Show app store buttons and/or website links */}
+                    {(selectedProduct.androidLink || selectedProduct.iosLink) ? (
                       <div style={{display: 'flex', gap: '8px'}}>
-                        <a
-                          href={selectedProduct.androidLink}
-                          className="catalog-details-cta"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{flex: 1, fontSize: '14px', padding: '8px 16px'}}
-                        >
-                          <svg style={{width: '18px', height: '18px', marginRight: '6px'}} fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.523 15.3414c-.5511-.0455-.9302-.4999-.9302-1.0381 0-.5607.3988-1.0156.9542-1.0156h.0069c.5542 0 .9486.455.9517 1.0156 0 .5382-.3975.9926-.9826 1.0381zm-11.1045 0c-.585-.0455-.9836-.4999-.9836-1.0381 0-.5607.4202-1.0156.9757-1.0156.5555 0 .9487.455.9518 1.0156 0 .5382-.3974.9926-.9439 1.0381zM8.0001 3.0391C8.0001 2.1665 8.5951 1.5 9.3871 1.5h5.2258c.7919 0 1.3869.6665 1.3869 1.5391v.8282h-8V3.0391zM5.2002 5.3673h13.5996c1.1044 0 2 .9522 2 2.127v11.3787c0 1.1748-.8956 2.127-2 2.127H5.2002c-1.1044 0-2-.9522-2-2.127V7.4943c0-1.1748.8956-2.127 2-2.127z"/>
-                          </svg>
-                          Android
-                        </a>
-                        <a
-                          href={selectedProduct.iosLink}
-                          className="catalog-details-cta"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          style={{flex: 1, fontSize: '14px', padding: '8px 16px'}}
-                        >
-                          <svg style={{width: '18px', height: '18px', marginRight: '6px'}} fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                          </svg>
-                          iOS
-                        </a>
+                        {selectedProduct.androidLink && (
+                          <a
+                            href={selectedProduct.androidLink}
+                            className="catalog-details-cta"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{flex: 1, fontSize: '14px', padding: '8px 16px'}}
+                          >
+                            <svg style={{width: '18px', height: '18px', marginRight: '6px'}} fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M17.523 15.3414c-.5511-.0455-.9302-.4999-.9302-1.0381 0-.5607.3988-1.0156.9542-1.0156h.0069c.5542 0 .9486.455.9517 1.0156 0 .5382-.3975.9926-.9826 1.0381zm-11.1045 0c-.585-.0455-.9836-.4999-.9836-1.0381 0-.5607.4202-1.0156.9757-1.0156.5555 0 .9487.455.9518 1.0156 0 .5382-.3974.9926-.9439 1.0381zM8.0001 3.0391C8.0001 2.1665 8.5951 1.5 9.3871 1.5h5.2258c.7919 0 1.3869.6665 1.3869 1.5391v.8282h-8V3.0391zM5.2002 5.3673h13.5996c1.1044 0 2 .9522 2 2.127v11.3787c0 1.1748-.8956 2.127-2 2.127H5.2002c-1.1044 0-2-.9522-2-2.127V7.4943c0-1.1748.8956-2.127 2-2.127z"/>
+                            </svg>
+                            Android
+                          </a>
+                        )}
+                        {selectedProduct.iosLink && (
+                          <a
+                            href={selectedProduct.iosLink}
+                            className="catalog-details-cta"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{flex: 1, fontSize: '14px', padding: '8px 16px'}}
+                          >
+                            <svg style={{width: '18px', height: '18px', marginRight: '6px'}} fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                            </svg>
+                            iOS
+                          </a>
+                        )}
+                        {selectedProduct.link && !selectedProduct.iosLink && (
+                          <a
+                            href={selectedProduct.link}
+                            className="catalog-details-cta"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{flex: 1, fontSize: '14px', padding: '8px 16px'}}
+                          >
+                            Website
+                            <svg style={{width: '18px', height: '18px', marginLeft: '4px'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </a>
+                        )}
                       </div>
                     ) : (
                       <a href={selectedProduct.link} className="catalog-details-cta" target="_blank" rel="noopener noreferrer">
@@ -298,8 +327,8 @@ const Navbar: React.FC = () => {
                 <span className="mobile-section-title">Products</span>
                 {products.map((product, index) => (
                   <div key={index}>
-                    {product.androidLink && product.iosLink ? (
-                      /* For products with app store links, show both buttons */
+                    {(product.androidLink || product.iosLink) ? (
+                      /* For products with app store links, show buttons */
                       <div style={{marginBottom: '12px'}}>
                         <div style={{display: 'flex', alignItems: 'center', marginBottom: '8px', padding: '8px 12px'}}>
                           <div className={`mobile-product-icon ${product.gradient}`}>
@@ -313,32 +342,48 @@ const Navbar: React.FC = () => {
                           </span>
                         </div>
                         <div style={{display: 'flex', gap: '8px', paddingLeft: '12px', paddingRight: '12px'}}>
-                          <a
-                            href={product.androidLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="catalog-details-cta"
-                            style={{flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center'}}
-                          >
-                            <svg style={{width: '16px', height: '16px', marginRight: '4px', display: 'inline-block'}} fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M17.523 15.3414c-.5511-.0455-.9302-.4999-.9302-1.0381 0-.5607.3988-1.0156.9542-1.0156h.0069c.5542 0 .9486.455.9517 1.0156 0 .5382-.3975.9926-.9826 1.0381zm-11.1045 0c-.585-.0455-.9836-.4999-.9836-1.0381 0-.5607.4202-1.0156.9757-1.0156.5555 0 .9487.455.9518 1.0156 0 .5382-.3974.9926-.9439 1.0381zM8.0001 3.0391C8.0001 2.1665 8.5951 1.5 9.3871 1.5h5.2258c.7919 0 1.3869.6665 1.3869 1.5391v.8282h-8V3.0391zM5.2002 5.3673h13.5996c1.1044 0 2 .9522 2 2.127v11.3787c0 1.1748-.8956 2.127-2 2.127H5.2002c-1.1044 0-2-.9522-2-2.127V7.4943c0-1.1748.8956-2.127 2-2.127z"/>
-                            </svg>
-                            Android
-                          </a>
-                          <a
-                            href={product.iosLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="catalog-details-cta"
-                            style={{flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center'}}
-                          >
-                            <svg style={{width: '16px', height: '16px', marginRight: '4px', display: 'inline-block'}} fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                            </svg>
-                            iOS
-                          </a>
+                          {product.androidLink && (
+                            <a
+                              href={product.androidLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="catalog-details-cta"
+                              style={{flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center'}}
+                            >
+                              <svg style={{width: '16px', height: '16px', marginRight: '4px', display: 'inline-block'}} fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.523 15.3414c-.5511-.0455-.9302-.4999-.9302-1.0381 0-.5607.3988-1.0156.9542-1.0156h.0069c.5542 0 .9486.455.9517 1.0156 0 .5382-.3975.9926-.9826 1.0381zm-11.1045 0c-.585-.0455-.9836-.4999-.9836-1.0381 0-.5607.4202-1.0156.9757-1.0156.5555 0 .9487.455.9518 1.0156 0 .5382-.3974.9926-.9439 1.0381zM8.0001 3.0391C8.0001 2.1665 8.5951 1.5 9.3871 1.5h5.2258c.7919 0 1.3869.6665 1.3869 1.5391v.8282h-8V3.0391zM5.2002 5.3673h13.5996c1.1044 0 2 .9522 2 2.127v11.3787c0 1.1748-.8956 2.127-2 2.127H5.2002c-1.1044 0-2-.9522-2-2.127V7.4943c0-1.1748.8956-2.127 2-2.127z"/>
+                              </svg>
+                              Android
+                            </a>
+                          )}
+                          {product.iosLink && (
+                            <a
+                              href={product.iosLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="catalog-details-cta"
+                              style={{flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center'}}
+                            >
+                              <svg style={{width: '16px', height: '16px', marginRight: '4px', display: 'inline-block'}} fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                              </svg>
+                              iOS
+                            </a>
+                          )}
+                          {product.link && !product.iosLink && (
+                            <a
+                              href={product.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="catalog-details-cta"
+                              style={{flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center'}}
+                            >
+                              Website
+                            </a>
+                          )}
                         </div>
                       </div>
                     ) : (
