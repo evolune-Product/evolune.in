@@ -27,9 +27,9 @@ const products: Product[] = [
   },
   {
     name: 'FluxTest',
-    tagline: 'AI-Powered API Testing Revolution',
-    description: 'The all-in-one AI-based API testing platform that transforms how you test, monitor, and optimize your APIs. Intelligent test generation, automated validation, and comprehensive analytics.',
-    features: ['AI test generation', 'Automated testing', 'Real-time monitoring', 'Performance analytics'],
+    tagline: '8 Types of Testing in One Unified Platform',
+    description: 'Our premium testing solution that revolutionizes API development. FluxTest combines 8 powerful testing types in a single unified platform - functional, integration, performance, security, load, regression, contract, and end-to-end testing powered by AI.',
+    features: ['8 testing types unified', 'AI-powered intelligence', 'Real-time monitoring', 'Automated validation'],
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
     gradient: 'from-blue-500 to-cyan-600',
     status: 'Live',

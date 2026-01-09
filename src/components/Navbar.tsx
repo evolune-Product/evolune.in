@@ -27,9 +27,9 @@ const products: Product[] = [
   },
   {
     name: 'FluxTest',
-    tagline: 'AI-Powered API Testing',
-    fullDescription: 'FluxTest revolutionizes API testing with artificial intelligence. Automatically generate test cases, validate responses, monitor performance, and catch bugs before they reach production. The all-in-one platform for modern API development.',
-    features: ['AI test case generation', 'Automated validation', 'Real-time monitoring', 'Performance analytics', 'CI/CD integration'],
+    tagline: '8 Types of Testing in One Unified Platform',
+    fullDescription: 'Our premium testing solution that revolutionizes API development. FluxTest combines 8 powerful testing types in a single unified platform - from functional and integration testing to performance, security, load, regression, contract, and end-to-end testing. Built with AI-powered intelligence to catch bugs before production.',
+    features: ['Functional Testing', 'Integration Testing', 'Performance Testing', 'Security Testing', 'Load Testing', 'Regression Testing', 'Contract Testing', 'End-to-End Testing'],
     link: 'https://fluxtest.evolune.in/',
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
     gradient: 'gradient-blue',
@@ -72,6 +72,7 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showProductsDropdown, setShowProductsDropdown] = useState(false);
+  const [showResourcesDropdown, setShowResourcesDropdown] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product>(products[0]);
 
   useEffect(() => {
@@ -87,22 +88,23 @@ const Navbar: React.FC = () => {
     // Close dropdown when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      const isClickInsideDropdown = target.closest('.dropdown-catalog-large');
-      const isClickOnProductsLink = target.closest('.nav-item-with-dropdown');
+      const isClickInsideDropdown = target.closest('.dropdown-catalog-large, .dropdown-simple');
+      const isClickOnDropdownLink = target.closest('.nav-item-with-dropdown');
 
-      if (!isClickInsideDropdown && !isClickOnProductsLink && showProductsDropdown) {
-        setShowProductsDropdown(false);
+      if (!isClickInsideDropdown && !isClickOnDropdownLink) {
+        if (showProductsDropdown) setShowProductsDropdown(false);
+        if (showResourcesDropdown) setShowResourcesDropdown(false);
       }
     };
 
-    if (showProductsDropdown) {
+    if (showProductsDropdown || showResourcesDropdown) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [showProductsDropdown]);
+  }, [showProductsDropdown, showResourcesDropdown]);
 
   return (
     <nav className={`navbar-floating ${isScrolled ? 'scrolled' : ''}`}>
@@ -119,21 +121,10 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Navigation */}
         <ul className="nav-links">
-          <li>
-            <a href="#" className="nav-link">
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="#about" className="nav-link">
-              About
-            </a>
-          </li>
-
           <li
             className="nav-item-with-dropdown"
             onMouseEnter={() => setShowProductsDropdown(true)}
+            onMouseLeave={() => setShowProductsDropdown(false)}
           >
             <a
               href="#products"
@@ -151,7 +142,11 @@ const Navbar: React.FC = () => {
 
             {/* Products Dropdown Catalog - Two Column Layout */}
             {showProductsDropdown && (
-              <div className="dropdown-catalog-large">
+              <div
+                className="dropdown-catalog-large"
+                onMouseEnter={() => setShowProductsDropdown(true)}
+                onMouseLeave={() => setShowProductsDropdown(false)}
+              >
                 {/* Left Side - Product List */}
                 <div className="catalog-sidebar">
                   <div className="catalog-sidebar-header">
@@ -165,11 +160,6 @@ const Navbar: React.FC = () => {
                         className={`product-list-item ${selectedProduct.name === product.name ? 'active' : ''}`}
                         onMouseEnter={() => setSelectedProduct(product)}
                       >
-                        <div className={`product-list-icon ${product.gradient}`}>
-                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={product.icon} />
-                          </svg>
-                        </div>
                         <div className="product-list-info">
                           <div className="product-list-name">
                             {product.name}
@@ -191,11 +181,6 @@ const Navbar: React.FC = () => {
                 <div className="catalog-details">
                   <div className="catalog-details-header">
                     <div className="catalog-details-header-left">
-                      <div className={`catalog-details-icon ${selectedProduct.gradient}`}>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={selectedProduct.icon} />
-                        </svg>
-                      </div>
                       <div>
                         <h3>{selectedProduct.name}</h3>
                         <p>{selectedProduct.tagline}</p>
@@ -279,16 +264,73 @@ const Navbar: React.FC = () => {
             )}
           </li>
 
+          <li
+            className="nav-item-with-dropdown"
+            onMouseEnter={() => setShowResourcesDropdown(true)}
+            onMouseLeave={() => setShowResourcesDropdown(false)}
+          >
+            <a
+              href="#"
+              className="nav-link"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowResourcesDropdown(!showResourcesDropdown);
+              }}
+            >
+              Resources
+              <svg className="w-4 h-4" style={{marginLeft: '4px'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+
+            {/* Resources Dropdown - Simple Menu */}
+            {showResourcesDropdown && (
+              <div
+                className="dropdown-simple"
+                onMouseEnter={() => setShowResourcesDropdown(true)}
+                onMouseLeave={() => setShowResourcesDropdown(false)}
+              >
+                <a href="#" className="dropdown-item">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <div>
+                    <div className="dropdown-item-title">Careers</div>
+                    <div className="dropdown-item-desc">Join our team</div>
+                  </div>
+                </a>
+                <a href="#" className="dropdown-item">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                  <div>
+                    <div className="dropdown-item-title">Blog</div>
+                    <div className="dropdown-item-desc">Latest insights & updates</div>
+                  </div>
+                </a>
+                <a href="#" className="dropdown-item">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                  <div>
+                    <div className="dropdown-item-title">Newsroom</div>
+                    <div className="dropdown-item-desc">Press releases & media</div>
+                  </div>
+                </a>
+              </div>
+            )}
+          </li>
+
           <li>
-            <a href="#contact" className="nav-link">
-              Contact
+            <a href="#" className="nav-link">
+              Docs
             </a>
           </li>
         </ul>
 
         {/* CTA Button */}
         <a href="#contact" className="btn btn-primary nav-cta">
-          Get Started
+          Contact us
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
@@ -317,12 +359,6 @@ const Navbar: React.FC = () => {
         {isMobileMenuOpen && (
           <div className="mobile-menu">
             <div className="mobile-menu-links">
-              <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="nav-link">
-                Home
-              </a>
-              <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="nav-link">
-                About
-              </a>
               <div className="mobile-products-section">
                 <span className="mobile-section-title">Products</span>
                 {products.map((product, index) => (
@@ -407,15 +443,30 @@ const Navbar: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="nav-link">
-                Contact
+
+              <div className="mobile-products-section">
+                <span className="mobile-section-title">Resources</span>
+                <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="nav-link" style={{paddingLeft: '1rem'}}>
+                  Careers
+                </a>
+                <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="nav-link" style={{paddingLeft: '1rem'}}>
+                  Blog
+                </a>
+                <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="nav-link" style={{paddingLeft: '1rem'}}>
+                  Newsroom
+                </a>
+              </div>
+
+              <a href="#" onClick={() => setIsMobileMenuOpen(false)} className="nav-link">
+                Docs
               </a>
+
               <a
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="btn btn-primary"
               >
-                Get Started
+                Contact us
               </a>
             </div>
           </div>

@@ -15,7 +15,12 @@
       "Bash(git push)",
       "Bash(git fetch:*)",
       "Bash(README.md)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(git checkout:*)",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []
