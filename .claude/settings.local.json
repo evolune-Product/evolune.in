@@ -20,7 +20,9 @@
       "Bash(git push:*)",
       "Bash(git ls-tree:*)",
       "Bash(git checkout:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(copy \"E:\\\\Evolune_Products\\\\Evolune-portfolio\\\\Startup-india.pdf\" \"E:\\\\Evolune_Products\\\\Evolune-portfolio\\\\portfolio\\\\public\\\\startup-india-certificate.pdf\")",
+      "Bash(npx tsc:*)"
     ],
     "deny": [],
     "ask": []

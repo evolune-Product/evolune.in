@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="hero-content">
-        {/* Main heading with glassmorphic badge */}
+        {/* Innovation badge */}
         <div className="hero-badge glass rounded-full px-6 py-2">
           <span className="status-dot"></span>
           <span className="text-sm font-medium text-slate-700">Innovation at the Edge of Technology</span>
@@ -68,6 +68,7 @@ const Hero: React.FC = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>
+
     </section>
   );
 };

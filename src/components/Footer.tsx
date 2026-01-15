@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import CertificateViewer from './CertificateViewer';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const [isCertificateOpen, setIsCertificateOpen] = useState(false);
 
   const footerLinks = {
     Products: [
@@ -73,6 +75,24 @@ const Footer: React.FC = () => {
             <p className="footer-description">
               Pioneering the future with innovative software solutions that transform businesses and empower individuals.
             </p>
+
+            {/* Startup India Badge */}
+            <button
+              className="startup-india-footer-badge"
+              onClick={() => setIsCertificateOpen(true)}
+              title="Click to view certificate"
+            >
+              <svg className="startup-india-footer-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" stroke="#FF9933" strokeWidth="1.5" fill="rgba(255,153,51,0.1)"/>
+                <path d="M12 6l6 3v6l-6 3-6-3V9l6-3z" stroke="#138808" strokeWidth="1" fill="rgba(19,136,8,0.1)"/>
+                <path d="M9 12l2 2 4-4" stroke="#138808" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <div className="startup-india-footer-text">
+                <span className="startup-india-footer-label">Startup India</span>
+                <span className="startup-india-footer-sublabel">DPIIT Recognised</span>
+              </div>
+            </button>
+
             {/* Social Links */}
             <div className="social-links">
               {socialLinks.map((social) => (
@@ -149,6 +169,12 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Certificate Viewer Modal */}
+      <CertificateViewer
+        isOpen={isCertificateOpen}
+        onClose={() => setIsCertificateOpen(false)}
+      />
     </footer>
   );
 };
