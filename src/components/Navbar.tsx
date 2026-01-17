@@ -33,17 +33,7 @@ const products: Product[] = [
     link: 'https://fluxtest.evolune.in/',
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
     gradient: 'gradient-blue',
-    status: 'Live',
-  },
-  {
-    name: 'NextPost',
-    tagline: 'Unified Social Media Suite',
-    fullDescription: 'NextPost centralizes your social media management. Schedule posts across multiple platforms, analyze engagement metrics, collaborate with your team, and grow your online presence—all from one powerful dashboard.',
-    features: ['Multi-platform posting', 'Content scheduling', 'Analytics & insights', 'Team collaboration', 'Content calendar'],
-    link: 'https://social.evolune.in/',
-    icon: 'M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z',
-    gradient: 'gradient-purple',
-    status: 'Live',
+    status: 'Beta',
   },
   {
     name: 'DarkPearl',
@@ -60,11 +50,9 @@ const products: Product[] = [
     tagline: 'Virtual Fashion & AI Styling',
     fullDescription: 'StyleAI is your revolutionary virtual try-on platform powered by cutting-edge AI. Experience clothes virtually, get personalized style recommendations, analyze fashion trends, and make confident style choices with AI-powered insights.',
     features: ['Virtual try-on technology', 'AI style recommendations', 'Fashion trend analysis', 'Personalized wardrobe', 'Smart outfit suggestions'],
-    link: 'http://styleai.evolune.in/',
-    androidLink: 'https://play.google.com/store/apps/details?id=com.styleai.evolune',
     icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
     gradient: 'gradient-pink',
-    status: 'Live',
+    status: 'Coming Soon',
   },
 ];
 
