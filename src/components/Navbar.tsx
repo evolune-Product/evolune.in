@@ -50,7 +50,7 @@ const products: Product[] = [
     tagline: 'Natural Language to Code',
     fullDescription: 'DarkPearl transforms the way you code. Simply describe what you want in plain English, and watch as it generates production-ready code with live preview. Perfect for rapid prototyping and bringing ideas to life instantly.',
     features: ['Natural language input', 'Real-time code generation', 'Live preview', 'Multiple frameworks', 'Export & deploy'],
-    link: 'https://darkpearlai.evolune.in/',
+    link: 'https://darkpearl.evolune.in/',
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
     gradient: 'gradient-blue',
     status: 'Beta',
