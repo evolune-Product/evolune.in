@@ -32,18 +32,8 @@ const products: Product[] = [
     features: ['8 testing types unified', 'AI-powered intelligence', 'Real-time monitoring', 'Automated validation'],
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
     gradient: 'from-blue-500 to-cyan-600',
-    status: 'Live',
+    status: 'Beta',
     link: 'https://fluxtest.evolune.in/',
-  },
-  {
-    name: 'NextPost',
-    tagline: 'Unified Social Media Management',
-    description: 'Manage all your social media accounts from one powerful platform. Schedule posts, analyze engagement, and grow your online presence across multiple platforms effortlessly.',
-    features: ['Multi-platform posting', 'Content scheduling', 'Analytics dashboard', 'Team collaboration'],
-    icon: 'M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z',
-    gradient: 'from-purple-500 to-pink-600',
-    status: 'Live',
-    link: 'https://social.evolune.in/',
   },
   {
     name: 'DarkPearl',
@@ -62,9 +52,7 @@ const products: Product[] = [
     features: ['Virtual try-on', 'AI style recommendations', 'Trend analysis', 'Personalized wardrobe'],
     icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
     gradient: 'from-pink-500 to-rose-600',
-    status: 'Live',
-    link: 'http://styleai.evolune.in/',
-    androidLink: 'https://play.google.com/store/apps/details?id=com.styleai.evolune',
+    status: 'Coming Soon',
   },
 ];
 
