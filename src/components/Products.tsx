@@ -53,7 +53,7 @@ const products: Product[] = [
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
     gradient: 'from-slate-700 to-indigo-900',
     status: 'Beta',
-    link: 'https://darkpearlai.evolune.in/',
+    link: 'https://darkpearl.evolune.in/',
   },
   {
     name: 'StyleAI',
