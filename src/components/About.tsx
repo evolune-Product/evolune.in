@@ -49,7 +49,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Values */}
-          <div className="glass rounded-3xl p-8 glass-hover" style={{gridColumn: 'span 2'}}>
+          <div className="glass rounded-3xl p-8 glass-hover values-card">
             <h3 className="text-2xl font-bold mb-6 text-slate-800 text-center">Our Core Values</h3>
             <div className="grid md-grid-cols-2 lg-grid-cols-4 gap-6">
               <div className="text-center">

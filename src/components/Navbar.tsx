@@ -151,7 +151,7 @@ const Navbar: React.FC = () => {
                         <div className="product-list-info">
                           <div className="product-list-name">
                             {product.name}
-                            <span className={`catalog-badge badge-${product.status.toLowerCase()}`}>
+                            <span className={`catalog-badge badge-${product.status.toLowerCase().replace(/\s+/g, '-')}`}>
                               {product.status}
                             </span>
                           </div>
@@ -423,7 +423,7 @@ const Navbar: React.FC = () => {
                           </svg>
                         </div>
                         <span>{product.name}</span>
-                        <span className={`catalog-badge badge-${product.status.toLowerCase()}`}>
+                        <span className={`catalog-badge badge-${product.status.toLowerCase().replace(/\s+/g, '-')}`}>
                           {product.status}
                         </span>
                       </a>

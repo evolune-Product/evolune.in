@@ -424,6 +424,19 @@ h1, h2, h3, h4, h5, h6 {
   .section {
     padding: var(--spacing-16) var(--spacing-4);
   }
+
+  /* About section mobile fixes */
+  .values-card {
+    grid-column: span 1 !important;
+  }
+
+  .text-5xl {
+    font-size: 2rem;
+  }
+
+  .text-6xl {
+    font-size: 2.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -437,6 +450,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .md-flex-row {
     flex-direction: row;
+  }
+
+  .values-card {
+    grid-column: span 2;
   }
 }
 

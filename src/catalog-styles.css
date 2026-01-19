@@ -317,6 +317,13 @@
   border: none;
 }
 
+.badge-coming,
+.badge-coming-soon {
+  background: rgba(255, 149, 0, 0.12);
+  color: #c93400;
+  border: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .dropdown-catalog-large {
