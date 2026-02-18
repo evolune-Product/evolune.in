@@ -50,9 +50,10 @@ const products: Product[] = [
     tagline: 'Virtual Fashion & AI Styling',
     fullDescription: 'StyleAI is your revolutionary virtual try-on platform powered by cutting-edge AI. Experience clothes virtually, get personalized style recommendations, analyze fashion trends, and make confident style choices with AI-powered insights.',
     features: ['Virtual try-on technology', 'AI style recommendations', 'Fashion trend analysis', 'Personalized wardrobe', 'Smart outfit suggestions'],
+    androidLink: 'https://play.google.com/store/apps/details?id=com.styleai.aifashionapp',
     icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
     gradient: 'gradient-pink',
-    status: 'Coming Soon',
+    status: 'Live',
   },
 ];
 
