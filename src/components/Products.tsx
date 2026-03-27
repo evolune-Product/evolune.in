@@ -46,7 +46,7 @@ const products: Product[] = [
     link: 'https://darkpearl.evolune.in/',
   },
   {
-    name: 'StyleAI',
+    name: 'StyleSense AI',
     tagline: 'Virtual Fashion & AI Styling',
     description: 'Revolutionary virtual try-on platform powered by AI. Experience clothes virtually, get personalized style recommendations, and discover trending fashion with cutting-edge technology.',
     features: ['Virtual try-on', 'AI style recommendations', 'Trend analysis', 'Personalized wardrobe'],
@@ -54,6 +54,7 @@ const products: Product[] = [
     gradient: 'from-pink-500 to-rose-600',
     status: 'Live',
     androidLink: 'https://play.google.com/store/apps/details?id=com.styleai.aifashionapp',
+    iosLink: 'https://apps.apple.com/us/app/stylesense-ai-outfit-analyzer/id6757631101',
   },
 ];
 

@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
       { name: 'FluxTest', href: '#products' },
       { name: 'NextPost', href: '#products' },
       { name: 'DarkPearl', href: '#products' },
-      { name: 'StyleAI', href: '#products' },
+      { name: 'StyleSense AI', href: '#products' },
     ],
     Company: [
       { name: 'About Us', href: '#about' },
