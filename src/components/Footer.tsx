@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
     Products: [
       { name: 'Cal Coach', href: '#products' },
       { name: 'FluxTest', href: '#products' },
-      { name: 'NextPost', href: '#products' },
       { name: 'DarkPearl', href: '#products' },
       { name: 'StyleSense AI', href: '#products' },
+      { name: 'Evo-MedX', href: '#products' },
     ],
     Company: [
       { name: 'About Us', href: '#about' },
@@ -46,34 +46,33 @@ const Footer: React.FC = () => {
     },
     {
       name: 'LinkedIn',
-      href: '#',
+      href: 'https://www.linkedin.com/in/evolune-edgetech-546640389/',
       icon: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z',
     },
     {
-      name: 'YouTube',
-      href: '#',
-      icon: 'M23 9s-.2-1.4-.8-2A3 3 0 0020 6c-2.3-.2-6-.2-8-.2s-5.7 0-8 .2a3 3 0 00-2.2 1A12 12 0 001 9a50 50 0 00-.2 6 50 50 0 00.2 6c.1.7.4 1.3.8 1.8a3 3 0 002.2 1.2c2.3.2 6 .2 8 .2s5.7 0 8-.2a3 3 0 002.2-1.2c.4-.5.7-1.1.8-1.8.2-2 .2-4 .2-6s0-4-.2-6zM9.5 15.5v-7l6 3.5-6 3.5z',
+      name: 'Instagram',
+      href: 'https://www.instagram.com/evolune.in/',
+      icon: 'M5 2h14a3 3 0 013 3v14a3 3 0 01-3 3H5a3 3 0 01-3-3V5a3 3 0 013-3z M12 8a4 4 0 100 8 4 4 0 000-8z M17.5 6.5h.01',
     },
   ];
 
   return (
     <footer className="footer">
       <div className="container">
-        {/* Main Footer Content */}
+        {/* Main Footer Grid */}
         <div className="footer-grid">
-          {/* Brand Column */}
+          {/* Brand */}
           <div className="footer-brand">
-            <a href="#" className="logo mb-4">
-              <div className="logo-icon" style={{width: '48px', height: '48px'}}>
-                <span style={{fontSize: '1.5rem'}}>E</span>
-              </div>
+            <a href="#" className="logo" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
+              <div className="logo-icon" />
               <div className="logo-text">
-                <span className="logo-title" style={{fontSize: '1.25rem'}}>Evolune</span>
+                <span className="logo-title">Evolune</span>
                 <span className="logo-subtitle">EdgeTech</span>
               </div>
             </a>
             <p className="footer-description">
-              Pioneering the future with innovative software solutions that transform businesses and empower individuals.
+              Pioneering the future with innovative software solutions that transform
+              businesses and empower individuals worldwide.
             </p>
 
             {/* Startup India Badge */}
@@ -83,8 +82,8 @@ const Footer: React.FC = () => {
               title="Click to view certificate"
             >
               <svg className="startup-india-footer-icon" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" stroke="#FF9933" strokeWidth="1.5" fill="rgba(255,153,51,0.1)"/>
-                <path d="M12 6l6 3v6l-6 3-6-3V9l6-3z" stroke="#138808" strokeWidth="1" fill="rgba(19,136,8,0.1)"/>
+                <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" stroke="#FF9933" strokeWidth="1.5" fill="rgba(255,153,51,0.08)"/>
+                <path d="M12 6l6 3v6l-6 3-6-3V9l6-3z" stroke="#138808" strokeWidth="1" fill="rgba(19,136,8,0.08)"/>
                 <path d="M9 12l2 2 4-4" stroke="#138808" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <div className="startup-india-footer-text">
@@ -101,6 +100,8 @@ const Footer: React.FC = () => {
                   href={social.href}
                   className="social-link"
                   aria-label={social.name}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={social.icon} />
@@ -110,7 +111,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Links Columns */}
+          {/* Link Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category} className="footer-column">
               <h3>{category}</h3>
@@ -127,15 +128,13 @@ const Footer: React.FC = () => {
           ))}
         </div>
 
-        {/* Newsletter Section */}
-        <div className="newsletter glass rounded-3xl">
+        {/* Newsletter */}
+        <div className="newsletter">
           <div className="newsletter-content">
             <div className="newsletter-text">
-              <h3 className="newsletter-title">
-                Stay Updated
-              </h3>
+              <h3 className="newsletter-title">Stay Updated</h3>
               <p className="newsletter-subtitle">
-                Subscribe to our newsletter for the latest updates and exclusive offers.
+                Subscribe for the latest updates and exclusive early access.
               </p>
             </div>
             <form className="newsletter-form">
@@ -153,24 +152,15 @@ const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <p>
-            © {currentYear} Evolune EdgeTech. All rights reserved.
-          </p>
+          <p>© {currentYear} Evolune EdgeTech. All rights reserved.</p>
           <div className="footer-bottom-links">
-            <a href="#" className="footer-link">
-              Privacy Policy
-            </a>
-            <a href="#" className="footer-link">
-              Terms of Service
-            </a>
-            <a href="#" className="footer-link">
-              Cookies
-            </a>
+            <a href="#" className="footer-link">Privacy Policy</a>
+            <a href="#" className="footer-link">Terms of Service</a>
+            <a href="#" className="footer-link">Cookies</a>
           </div>
         </div>
       </div>
 
-      {/* Certificate Viewer Modal */}
       <CertificateViewer
         isOpen={isCertificateOpen}
         onClose={() => setIsCertificateOpen(false)}

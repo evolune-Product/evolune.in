@@ -3,7 +3,7 @@ import React from 'react';
 const Hero: React.FC = () => {
   return (
     <section className="hero">
-      {/* Animated background elements */}
+      {/* Animated background */}
       <div className="hero-bg">
         <div className="hero-orb hero-orb-1"></div>
         <div className="hero-orb hero-orb-2"></div>
@@ -11,51 +11,53 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="hero-content">
-        {/* Innovation badge */}
-        <div className="hero-badge glass rounded-full px-6 py-2">
+        {/* Badge */}
+        <div className="hero-badge">
           <span className="status-dot"></span>
-          <span className="text-sm font-medium text-slate-700">Innovation at the Edge of Technology</span>
+          <span className="text-sm font-medium">Products Launching — Explore Now</span>
         </div>
 
+        {/* Title */}
         <h1 className="hero-title">
           <span className="text-gradient">Evolune</span>
           <br />
-          <span className="text-slate-800">EdgeTech</span>
+          <span style={{ color: 'var(--text-1)' }}>EdgeTech</span>
         </h1>
 
+        {/* Subtitle */}
         <p className="hero-subtitle">
-          Pioneering the future with cutting-edge software solutions.
-          Transforming ideas into powerful, scalable products that drive success.
+          We build software that matters — intelligent, scalable products that put
+          a dent in the way people work, learn, and live.
         </p>
 
-        {/* CTA buttons */}
+        {/* CTAs */}
         <div className="hero-cta">
-          <a href="#products" className="btn btn-glass">
+          <a href="#products" className="btn btn-primary">
             Explore Products
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-          <a href="#contact" className="btn btn-primary">
-            Get Started
+          <a href="#contact" className="btn btn-outline">
+            Get in Touch
           </a>
         </div>
 
-        {/* Stats section */}
+        {/* Stats */}
         <div className="hero-stats">
-          <div className="stat-card glass rounded-3xl glass-hover">
+          <div className="stat-card">
             <div className="stat-value text-gradient">5+</div>
             <div className="stat-label">Products</div>
           </div>
-          <div className="stat-card glass rounded-3xl glass-hover">
+          <div className="stat-card">
             <div className="stat-value text-gradient">10K+</div>
             <div className="stat-label">Active Users</div>
           </div>
-          <div className="stat-card glass rounded-3xl glass-hover">
+          <div className="stat-card">
             <div className="stat-value text-gradient">99.9%</div>
             <div className="stat-label">Uptime</div>
           </div>
-          <div className="stat-card glass rounded-3xl glass-hover">
+          <div className="stat-card">
             <div className="stat-value text-gradient">24/7</div>
             <div className="stat-label">Support</div>
           </div>
@@ -64,11 +66,10 @@ const Hero: React.FC = () => {
 
       {/* Scroll indicator */}
       <div className="scroll-indicator">
-        <svg className="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>
-
     </section>
   );
 };
