@@ -81,33 +81,6 @@ const products: Product[] = [
     ],
   },
   {
-    name: 'DarkPearl',
-    tagline: 'Code in Natural Language',
-    description:
-      'Stop writing boilerplate. Describe what you want in plain English and watch DarkPearl generate production-ready code with a live preview — then export to any framework in seconds.',
-    features: [
-      'Natural language to code',
-      'Live real-time preview',
-      'Multi-framework export',
-      'AI auto-completion engine',
-      'One-click deployment',
-    ],
-    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-    gradientFrom: '#7c3aed',
-    gradientTo: '#4f46e5',
-    glowColor: 'rgba(124, 58, 237, 0.25)',
-    bgAccent: 'rgba(124, 58, 237, 0.05)',
-    status: 'Beta',
-    link: 'https://darkpearl.evolune.in/',
-    visualTag: 'AI Development',
-    visualStats: [
-      { emoji: '💬', label: 'Prompt', value: '"Build a login form"' },
-      { emoji: '⚡', label: 'Generated in', value: '0.8 seconds' },
-      { emoji: '📦', label: 'Frameworks', value: 'React, Vue, Next' },
-      { emoji: '🚀', label: 'Deploy time', value: '< 30 seconds' },
-    ],
-  },
-  {
     name: 'StyleSense AI',
     tagline: 'Virtual Fashion & AI Styling',
     description:

@@ -27,8 +27,8 @@ const Contact: React.FC = () => {
             </div>
             <h3 className="contact-title">Email Us</h3>
             <p className="contact-subtitle">We'll respond within 24 hours</p>
-            <a href="mailto:evoluneai@gmail.com" className="contact-link">
-              evoluneai@gmail.com
+            <a href="mailto:business@evolune.in" className="contact-link">
+              business@evolune.in
             </a>
           </div>
         </div>

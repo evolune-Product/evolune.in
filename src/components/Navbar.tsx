@@ -5,6 +5,7 @@ interface Product {
   tagline: string;
   fullDescription: string;
   features: string[];
+  featureColumns?: number;
   link?: string;
   androidLink?: string;
   iosLink?: string;
@@ -30,17 +31,8 @@ const products: Product[] = [
     tagline: '8 Types of Testing in One Unified Platform',
     fullDescription: 'Our premium testing solution that revolutionizes API development. FluxTest combines 8 powerful testing types in a single unified platform - from functional and integration testing to performance, security, load, regression, contract, and end-to-end testing. Built with AI-powered intelligence to catch bugs before production.',
     features: ['Functional Testing', 'Integration Testing', 'Performance Testing', 'Security Testing', 'Load Testing', 'Regression Testing', 'Contract Testing', 'End-to-End Testing'],
+    featureColumns: 2,
     link: 'https://fluxtest.evolune.in/',
-    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-    gradient: 'gradient-blue',
-    status: 'Beta',
-  },
-  {
-    name: 'DarkPearl',
-    tagline: 'Natural Language to Code',
-    fullDescription: 'DarkPearl transforms the way you code. Simply describe what you want in plain English, and watch as it generates production-ready code with live preview. Perfect for rapid prototyping and bringing ideas to life instantly.',
-    features: ['Natural language input', 'Real-time code generation', 'Live preview', 'Multiple frameworks', 'Export & deploy'],
-    link: 'https://darkpearl.evolune.in/',
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
     gradient: 'gradient-blue',
     status: 'Beta',
@@ -87,31 +79,70 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
-    // Close dropdown when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
       const isClickInsideDropdown = target.closest('.dropdown-catalog-large');
       const isClickOnDropdownLink = target.closest('.nav-item-with-dropdown');
-
       if (!isClickInsideDropdown && !isClickOnDropdownLink) {
         if (showProductsDropdown) setShowProductsDropdown(false);
       }
     };
-
     if (showProductsDropdown) {
       document.addEventListener('mousedown', handleClickOutside);
     }
-
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [showProductsDropdown]);
+
+  const renderFeatures = (product: Product) => {
+    if (product.featureColumns === 2) {
+      const mid = Math.ceil(product.features.length / 2);
+      const left = product.features.slice(0, mid);
+      const right = product.features.slice(mid);
+      return (
+        <div className="features-two-col">
+          <ul>
+            {left.map((feat, idx) => (
+              <li key={idx}>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                {feat}
+              </li>
+            ))}
+          </ul>
+          <ul>
+            {right.map((feat, idx) => (
+              <li key={idx}>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                {feat}
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    }
+    return (
+      <ul>
+        {product.features.map((feat, idx) => (
+          <li key={idx}>
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            {feat}
+          </li>
+        ))}
+      </ul>
+    );
+  };
 
   return (
     <nav className={`navbar-floating ${isScrolled ? 'scrolled' : ''}`}>
@@ -140,12 +171,12 @@ const Navbar: React.FC = () => {
               }}
             >
               Products
-              <svg className="w-4 h-4 nav-chevron" style={{marginLeft: '4px'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 nav-chevron" style={{ marginLeft: '4px' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
 
-            {/* Products Dropdown Catalog - Two Column Layout */}
+            {/* Products Dropdown Catalog */}
             {showProductsDropdown && (
               <div
                 className="dropdown-catalog-large"
@@ -191,49 +222,22 @@ const Navbar: React.FC = () => {
                         <p>{selectedProduct.tagline}</p>
                       </div>
                     </div>
-                    {/* Show app store buttons and/or website links */}
                     {(selectedProduct.androidLink || selectedProduct.iosLink) ? (
-                      <div style={{display: 'flex', gap: '8px'}}>
+                      <div style={{ display: 'flex', gap: '8px' }}>
                         {selectedProduct.androidLink && (
-                          <a
-                            href={selectedProduct.androidLink}
-                            className="catalog-details-cta"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{flex: 1, fontSize: '14px', padding: '8px 16px'}}
-                          >
-                            <svg style={{width: '18px', height: '18px', marginRight: '6px'}} fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M17.523 15.3414c-.5511-.0455-.9302-.4999-.9302-1.0381 0-.5607.3988-1.0156.9542-1.0156h.0069c.5542 0 .9486.455.9517 1.0156 0 .5382-.3975.9926-.9826 1.0381zm-11.1045 0c-.585-.0455-.9836-.4999-.9836-1.0381 0-.5607.4202-1.0156.9757-1.0156.5555 0 .9487.455.9518 1.0156 0 .5382-.3974.9926-.9439 1.0381zM8.0001 3.0391C8.0001 2.1665 8.5951 1.5 9.3871 1.5h5.2258c.7919 0 1.3869.6665 1.3869 1.5391v.8282h-8V3.0391zM5.2002 5.3673h13.5996c1.1044 0 2 .9522 2 2.127v11.3787c0 1.1748-.8956 2.127-2 2.127H5.2002c-1.1044 0-2-.9522-2-2.127V7.4943c0-1.1748.8956-2.127 2-2.127z"/>
+                          <a href={selectedProduct.androidLink} className="catalog-details-cta" target="_blank" rel="noopener noreferrer" style={{ flex: 1, fontSize: '14px', padding: '8px 16px' }}>
+                            <svg style={{ width: '18px', height: '18px', marginRight: '6px' }} fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M17.523 15.3414c-.5511-.0455-.9302-.4999-.9302-1.0381 0-.5607.3988-1.0156.9542-1.0156h.0069c.5542 0 .9486.455.9517 1.0156 0 .5382-.3975.9926-.9826 1.0381zm-11.1045 0c-.585-.0455-.9836-.4999-.9836-1.0381 0-.5607.4202-1.0156.9757-1.0156.5555 0 .9487.455.9518 1.0156 0 .5382-.3974.9926-.9439 1.0381zM8.0001 3.0391C8.0001 2.1665 8.5951 1.5 9.3871 1.5h5.2258c.7919 0 1.3869.6665 1.3869 1.5391v.8282h-8V3.0391zM5.2002 5.3673h13.5996c1.1044 0 2 .9522 2 2.127v11.3787c0 1.1748-.8956 2.127-2 2.127H5.2002c-1.1044 0-2-.9522-2-2.127V7.4943c0-1.1748.8956-2.127 2-2.127z" />
                             </svg>
                             Android
                           </a>
                         )}
                         {selectedProduct.iosLink && (
-                          <a
-                            href={selectedProduct.iosLink}
-                            className="catalog-details-cta"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{flex: 1, fontSize: '14px', padding: '8px 16px'}}
-                          >
-                            <svg style={{width: '18px', height: '18px', marginRight: '6px'}} fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                          <a href={selectedProduct.iosLink} className="catalog-details-cta" target="_blank" rel="noopener noreferrer" style={{ flex: 1, fontSize: '14px', padding: '8px 16px' }}>
+                            <svg style={{ width: '18px', height: '18px', marginRight: '6px' }} fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
                             </svg>
                             iOS
-                          </a>
-                        )}
-                        {selectedProduct.link && !selectedProduct.iosLink && (
-                          <a
-                            href={selectedProduct.link}
-                            className="catalog-details-cta"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{flex: 1, fontSize: '14px', padding: '8px 16px'}}
-                          >
-                            Website
-                            <svg style={{width: '18px', height: '18px', marginLeft: '4px'}} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
                           </a>
                         )}
                       </div>
@@ -245,7 +249,7 @@ const Navbar: React.FC = () => {
                         </svg>
                       </a>
                     ) : (
-                      <span className={`catalog-badge badge-coming-soon`} style={{padding: '6px 14px', fontSize: '13px'}}>
+                      <span className="catalog-badge badge-coming-soon" style={{ padding: '6px 14px', fontSize: '13px' }}>
                         Launching Soon
                       </span>
                     )}
@@ -257,16 +261,7 @@ const Navbar: React.FC = () => {
 
                   <div className="catalog-details-features">
                     <h4>Key Features</h4>
-                    <ul>
-                      {selectedProduct.features.map((feature, idx) => (
-                        <li key={idx}>
-                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                          </svg>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
+                    {renderFeatures(selectedProduct)}
                   </div>
                 </div>
               </div>
@@ -293,12 +288,7 @@ const Navbar: React.FC = () => {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="mobile-menu-btn"
         >
-          <svg
-            className="w-6 h-6 text-slate-700"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isMobileMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -316,71 +306,39 @@ const Navbar: React.FC = () => {
                 {products.map((product, index) => (
                   <div key={index}>
                     {(product.androidLink || product.iosLink) ? (
-                      /* For products with app store links, show buttons */
-                      <div style={{marginBottom: '12px'}}>
-                        <div style={{display: 'flex', alignItems: 'center', marginBottom: '8px', padding: '8px 12px'}}>
+                      <div style={{ marginBottom: '12px' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px', padding: '8px 12px' }}>
                           <div className={`mobile-product-icon ${product.gradient}`}>
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={product.icon} />
                             </svg>
                           </div>
-                          <span style={{fontWeight: 500}}>{product.name}</span>
-                          <span className={`catalog-badge badge-${product.status.toLowerCase()}`} style={{marginLeft: 'auto'}}>
+                          <span style={{ fontWeight: 500 }}>{product.name}</span>
+                          <span className={`catalog-badge badge-${product.status.toLowerCase()}`} style={{ marginLeft: 'auto' }}>
                             {product.status}
                           </span>
                         </div>
-                        <div style={{display: 'flex', gap: '8px', paddingLeft: '12px', paddingRight: '12px'}}>
+                        <div style={{ display: 'flex', gap: '8px', paddingLeft: '12px', paddingRight: '12px' }}>
                           {product.androidLink && (
-                            <a
-                              href={product.androidLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="catalog-details-cta"
-                              style={{flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center'}}
-                            >
-                              <svg style={{width: '16px', height: '16px', marginRight: '4px', display: 'inline-block'}} fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.523 15.3414c-.5511-.0455-.9302-.4999-.9302-1.0381 0-.5607.3988-1.0156.9542-1.0156h.0069c.5542 0 .9486.455.9517 1.0156 0 .5382-.3975.9926-.9826 1.0381zm-11.1045 0c-.585-.0455-.9836-.4999-.9836-1.0381 0-.5607.4202-1.0156.9757-1.0156.5555 0 .9487.455.9518 1.0156 0 .5382-.3974.9926-.9439 1.0381zM8.0001 3.0391C8.0001 2.1665 8.5951 1.5 9.3871 1.5h5.2258c.7919 0 1.3869.6665 1.3869 1.5391v.8282h-8V3.0391zM5.2002 5.3673h13.5996c1.1044 0 2 .9522 2 2.127v11.3787c0 1.1748-.8956 2.127-2 2.127H5.2002c-1.1044 0-2-.9522-2-2.127V7.4943c0-1.1748.8956-2.127 2-2.127z"/>
+                            <a href={product.androidLink} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="catalog-details-cta" style={{ flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center' }}>
+                              <svg style={{ width: '16px', height: '16px', marginRight: '4px', display: 'inline-block' }} fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.523 15.3414c-.5511-.0455-.9302-.4999-.9302-1.0381 0-.5607.3988-1.0156.9542-1.0156h.0069c.5542 0 .9486.455.9517 1.0156 0 .5382-.3975.9926-.9826 1.0381zm-11.1045 0c-.585-.0455-.9836-.4999-.9836-1.0381 0-.5607.4202-1.0156.9757-1.0156.5555 0 .9487.455.9518 1.0156 0 .5382-.3974.9926-.9439 1.0381zM8.0001 3.0391C8.0001 2.1665 8.5951 1.5 9.3871 1.5h5.2258c.7919 0 1.3869.6665 1.3869 1.5391v.8282h-8V3.0391zM5.2002 5.3673h13.5996c1.1044 0 2 .9522 2 2.127v11.3787c0 1.1748-.8956 2.127-2 2.127H5.2002c-1.1044 0-2-.9522-2-2.127V7.4943c0-1.1748.8956-2.127 2-2.127z" />
                               </svg>
                               Android
                             </a>
                           )}
                           {product.iosLink && (
-                            <a
-                              href={product.iosLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="catalog-details-cta"
-                              style={{flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center'}}
-                            >
-                              <svg style={{width: '16px', height: '16px', marginRight: '4px', display: 'inline-block'}} fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                            <a href={product.iosLink} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="catalog-details-cta" style={{ flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center' }}>
+                              <svg style={{ width: '16px', height: '16px', marginRight: '4px', display: 'inline-block' }} fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
                               </svg>
                               iOS
-                            </a>
-                          )}
-                          {product.link && !product.iosLink && (
-                            <a
-                              href={product.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="catalog-details-cta"
-                              style={{flex: 1, fontSize: '13px', padding: '8px 12px', textAlign: 'center'}}
-                            >
-                              Website
                             </a>
                           )}
                         </div>
                       </div>
                     ) : product.link ? (
-                      /* For regular web products, show single link */
-                      <a
-                        href={product.link}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="mobile-product-link"
-                      >
+                      <a href={product.link} onClick={() => setIsMobileMenuOpen(false)} className="mobile-product-link">
                         <div className={`mobile-product-icon ${product.gradient}`}>
                           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={product.icon} />
@@ -392,15 +350,14 @@ const Navbar: React.FC = () => {
                         </span>
                       </a>
                     ) : (
-                      /* Coming Soon — no link */
-                      <div className="mobile-product-link" style={{cursor: 'default', opacity: 0.75}}>
+                      <div className="mobile-product-link" style={{ cursor: 'default', opacity: 0.75 }}>
                         <div className={`mobile-product-icon ${product.gradient}`}>
                           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={product.icon} />
                           </svg>
                         </div>
                         <span>{product.name}</span>
-                        <span className="catalog-badge badge-coming-soon" style={{marginLeft: 'auto'}}>
+                        <span className="catalog-badge badge-coming-soon" style={{ marginLeft: 'auto' }}>
                           {product.status}
                         </span>
                       </div>
@@ -413,11 +370,7 @@ const Navbar: React.FC = () => {
                 Company
               </a>
 
-              <a
-                href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="btn btn-primary"
-              >
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="btn btn-primary">
                 Contact us
               </a>
             </div>

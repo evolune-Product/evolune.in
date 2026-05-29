@@ -9,8 +9,7 @@ const Footer: React.FC = () => {
     Products: [
       { name: 'Cal Coach', href: '#products' },
       { name: 'FluxTest', href: '#products' },
-      { name: 'DarkPearl', href: '#products' },
-      { name: 'StyleSense AI', href: '#products' },
+{ name: 'StyleSense AI', href: '#products' },
       { name: 'Evo-MedX', href: '#products' },
     ],
     Company: [

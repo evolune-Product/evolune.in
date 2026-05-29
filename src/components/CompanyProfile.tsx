@@ -7,7 +7,7 @@ const CompanyProfile: React.FC = () => {
 
   const stats = [
     { value: 'Feb 2025', label: 'Founded' },
-    { value: '5', label: 'Products' },
+    { value: '4', label: 'Products' },
     { value: '2', label: 'On App Stores' },
     { value: 'DPIIT', label: 'Recognised' },
   ];
@@ -74,14 +74,6 @@ const CompanyProfile: React.FC = () => {
       gradient: 'linear-gradient(135deg, #3b82f6, #6366f1)',
       icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
       tag: 'Developer Tools',
-    },
-    {
-      name: 'DarkPearl',
-      tagline: 'Code in Natural Language',
-      status: 'Beta',
-      gradient: 'linear-gradient(135deg, #7c3aed, #4f46e5)',
-      icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-      tag: 'AI Development',
     },
     {
       name: 'StyleSense AI',
