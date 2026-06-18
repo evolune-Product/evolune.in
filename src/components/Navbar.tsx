@@ -28,9 +28,9 @@ const products: Product[] = [
   },
   {
     name: 'Flasqo',
-    tagline: '8 Types of Testing in One Unified Platform',
-    fullDescription: 'Our premium testing solution that revolutionizes API development. Flasqo combines 8 powerful testing types in a single unified platform - from functional and integration testing to performance, security, load, regression, contract, and end-to-end testing. Built with AI-powered intelligence to catch bugs before production.',
-    features: ['Functional Testing', 'Integration Testing', 'Performance Testing', 'Security Testing', 'Load Testing', 'Regression Testing', 'Contract Testing', 'End-to-End Testing'],
+    tagline: '13 Types of Testing in One Unified Platform',
+    fullDescription: 'The AI-powered API testing platform built for teams that ship fast. Flasqo combines 13 powerful testing types in a single unified platform — from smoke and regression to GraphQL, contract, chaos, and full end-to-end browser execution. Catch bugs before your users do.',
+    features: ['Smoke Testing', 'GraphQL Testing', 'Load Testing', 'Chaos Testing', 'Regression Testing', 'Contract Testing', 'Integration Testing', 'FullSend (E2E)'],
     featureColumns: 2,
     link: 'https://flasqo.com/',
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',

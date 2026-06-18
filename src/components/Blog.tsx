@@ -5,7 +5,7 @@ const blogPosts = [
     tag: 'Developer Tools',
     tagClass: 'blog-tag-cyan',
     accentGradient: 'linear-gradient(90deg, #22d3ee, #818cf8)',
-    title: 'Introducing Flasqo: 8 Types of API Testing in One Unified Platform',
+    title: 'Introducing Flasqo: 13 Types of API Testing in One Unified Platform',
     excerpt:
       'API testing has always been fragmented — different tools for functional, performance, security, and load testing. Flasqo changes that by covering everything in one intelligent dashboard powered by AI.',
     date: 'Jun 10, 2025',

@@ -69,7 +69,7 @@ const CompanyProfile: React.FC = () => {
     },
     {
       name: 'Flasqo',
-      tagline: '8 Testing Types in One Platform',
+      tagline: '13 Types of Testing in One Unified Platform',
       status: 'Beta',
       gradient: 'linear-gradient(135deg, #3b82f6, #6366f1)',
       icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
