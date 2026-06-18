@@ -14,7 +14,7 @@ const CompanyProfile: React.FC = () => {
 
   const highlights = [
     { icon: '🏛️', title: 'IIT Madras', desc: 'Selected for E-Summit & I-Summit 2026' },
-    { icon: '🏆', title: 'PitchArena Winner', desc: 'FluxTest secured top place at I-Summit 2026' },
+    { icon: '🏆', title: 'PitchArena Winner', desc: 'Flasqo secured top place at I-Summit 2026' },
     { icon: '🎓', title: 'NSRCEL Shortlist', desc: 'Shortlisted by IIM Bangalore for incubation' },
     { icon: '🚀', title: 'IIT Madras Pitch', desc: 'Opportunity to pitch at IIT Madras campus' },
   ];
@@ -32,9 +32,9 @@ const CompanyProfile: React.FC = () => {
     {
       emoji: '🏆',
       badge: 'PitchArena Champion',
-      title: 'FluxTest Wins PitchArena',
+      title: 'Flasqo Wins PitchArena',
       description:
-        'FluxTest sealed the top position at PitchArena — the flagship startup pitching competition at I-Summit 2026, IIT Madras. Recognised as a best-in-class solution in the developer tools space.',
+        'Flasqo sealed the top position at PitchArena — the flagship startup pitching competition at I-Summit 2026, IIT Madras. Recognised as a best-in-class solution in the developer tools space.',
       gradient: 'linear-gradient(135deg, #f59e0b, #ef4444)',
       glow: 'rgba(245, 158, 11, 0.18)',
     },
@@ -68,7 +68,7 @@ const CompanyProfile: React.FC = () => {
       tag: 'Health & Wellness',
     },
     {
-      name: 'FluxTest',
+      name: 'Flasqo',
       tagline: '8 Testing Types in One Platform',
       status: 'Beta',
       gradient: 'linear-gradient(135deg, #3b82f6, #6366f1)',

@@ -5,6 +5,7 @@ import About from './components/About';
 import Features from './components/Features';
 import Products from './components/Products';
 import CompanyProfile from './components/CompanyProfile';
+import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -42,6 +43,7 @@ function App() {
         <About />
         <Features />
         <CompanyProfile />
+        <Blog />
         <Contact />
       </main>
       <Footer />

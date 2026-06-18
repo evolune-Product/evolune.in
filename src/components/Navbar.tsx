@@ -27,12 +27,12 @@ const products: Product[] = [
     status: 'Live',
   },
   {
-    name: 'FluxTest',
+    name: 'Flasqo',
     tagline: '8 Types of Testing in One Unified Platform',
-    fullDescription: 'Our premium testing solution that revolutionizes API development. FluxTest combines 8 powerful testing types in a single unified platform - from functional and integration testing to performance, security, load, regression, contract, and end-to-end testing. Built with AI-powered intelligence to catch bugs before production.',
+    fullDescription: 'Our premium testing solution that revolutionizes API development. Flasqo combines 8 powerful testing types in a single unified platform - from functional and integration testing to performance, security, load, regression, contract, and end-to-end testing. Built with AI-powered intelligence to catch bugs before production.',
     features: ['Functional Testing', 'Integration Testing', 'Performance Testing', 'Security Testing', 'Load Testing', 'Regression Testing', 'Contract Testing', 'End-to-End Testing'],
     featureColumns: 2,
-    link: 'https://fluxtest.evolune.in/',
+    link: 'https://flasqo.com/',
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
     gradient: 'gradient-blue',
     status: 'Beta',
@@ -148,11 +148,7 @@ const Navbar: React.FC = () => {
     <nav className={`navbar-floating ${isScrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
         <a href="#" className="logo">
-          <div className="logo-icon" />
-          <div className="logo-text">
-            <span className="logo-title">Evolune</span>
-            <span className="logo-subtitle">EdgeTech</span>
-          </div>
+          <img src="/logo.png" alt="Evolune EdgeTech" className="logo-img" />
         </a>
 
         {/* Desktop Navigation */}
@@ -273,6 +269,12 @@ const Navbar: React.FC = () => {
               Company
             </a>
           </li>
+
+          <li>
+            <a href="#blog" className="nav-link">
+              Blog
+            </a>
+          </li>
         </ul>
 
         {/* CTA Button */}
@@ -368,6 +370,10 @@ const Navbar: React.FC = () => {
 
               <a href="#company" onClick={() => setIsMobileMenuOpen(false)} className="nav-link">
                 Company
+              </a>
+
+              <a href="#blog" onClick={() => setIsMobileMenuOpen(false)} className="nav-link">
+                Blog
               </a>
 
               <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="btn btn-primary">

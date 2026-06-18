@@ -54,7 +54,7 @@ const products: Product[] = [
     ],
   },
   {
-    name: 'FluxTest',
+    name: 'Flasqo',
     tagline: '8 Types of Testing in One Unified Platform',
     description:
       'The premium API testing platform that unifies everything — functional, integration, performance, security, load, regression, contract, and end-to-end testing — all powered by AI intelligence to catch bugs before production.',
@@ -71,7 +71,7 @@ const products: Product[] = [
     glowColor: 'rgba(99, 102, 241, 0.25)',
     bgAccent: 'rgba(59, 130, 246, 0.05)',
     status: 'Beta',
-    link: 'https://fluxtest.evolune.in/',
+    link: 'https://flasqo.com/',
     visualTag: 'Developer Tools',
     visualStats: [
       { emoji: '✅', label: 'Tests Passed', value: '2,841' },

@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   const footerLinks = {
     Products: [
       { name: 'Cal Coach', href: '#products' },
-      { name: 'FluxTest', href: '#products' },
+      { name: 'Flasqo', href: '#products' },
 { name: 'StyleSense AI', href: '#products' },
       { name: 'Evo-MedX', href: '#products' },
     ],
@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
     Resources: [
       { name: 'Documentation', href: '#' },
       { name: 'API Reference', href: '#' },
-      { name: 'Blog', href: '#' },
+      { name: 'Blog', href: '#blog' },
       { name: 'Community', href: '#' },
     ],
     Legal: [
@@ -63,11 +63,7 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="footer-brand">
             <a href="#" className="logo" style={{ marginBottom: '1rem', display: 'inline-flex' }}>
-              <div className="logo-icon" />
-              <div className="logo-text">
-                <span className="logo-title">Evolune</span>
-                <span className="logo-subtitle">EdgeTech</span>
-              </div>
+              <img src="/logo.png" alt="Evolune EdgeTech" className="logo-img" />
             </a>
             <p className="footer-description">
               Pioneering the future with innovative software solutions that transform
