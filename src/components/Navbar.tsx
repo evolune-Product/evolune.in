@@ -16,14 +16,13 @@ interface Product {
 
 const products: Product[] = [
   {
-    name: 'Cal Coach',
-    tagline: 'Smart Calorie Tracking',
-    fullDescription: 'Cal Coach is your personal nutrition companion that helps you track calories, monitor macros, and achieve your health goals. With intelligent meal logging, barcode scanning, and personalized insights, staying healthy has never been easier.',
-    features: ['Smart calorie tracking', 'Nutritional insights', 'Goal setting & progress tracking', 'Barcode scanning', 'Meal history & analytics'],
-    androidLink: 'https://play.google.com/store/apps/details?id=com.calcoach.evolune',
-    iosLink: 'https://apps.apple.com/in/app/cal-coach-calorie-tracker/id6754588180',
-    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
-    gradient: 'gradient-green',
+    name: 'Evolune OS',
+    tagline: 'The Agentic Software Development Platform',
+    fullDescription: 'Evolune OS is an agentic SDLC platform that runs a full team of AI agents — planning, building, reviewing, and shipping software end-to-end. From idea to production, Evolune OS orchestrates the entire development lifecycle autonomously.',
+    features: ['Autonomous agent team for full SDLC', 'End-to-end planning to deployment', 'AI code review & quality gates', 'Continuous shipping pipeline', 'Human-in-the-loop oversight'],
+    link: 'https://evoluneos.com',
+    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+    gradient: 'gradient-purple',
     status: 'Live',
   },
   {
@@ -36,17 +35,6 @@ const products: Product[] = [
     icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
     gradient: 'gradient-blue',
     status: 'Beta',
-  },
-  {
-    name: 'StyleSense AI',
-    tagline: 'Virtual Fashion & AI Styling',
-    fullDescription: 'StyleSense AI is your revolutionary virtual try-on platform powered by cutting-edge AI. Experience clothes virtually, get personalized style recommendations, analyze fashion trends, and make confident style choices with AI-powered insights.',
-    features: ['Virtual try-on technology', 'AI style recommendations', 'Fashion trend analysis', 'Personalized wardrobe', 'Smart outfit suggestions'],
-    androidLink: 'https://play.google.com/store/apps/details?id=com.styleai.aifashionapp',
-    iosLink: 'https://apps.apple.com/us/app/stylesense-ai-outfit-analyzer/id6757631101',
-    icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
-    gradient: 'gradient-pink',
-    status: 'Live',
   },
   {
     name: 'Evo-MedX',

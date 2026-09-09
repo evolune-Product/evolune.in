@@ -13,15 +13,15 @@ const blogPosts = [
     href: 'https://flasqo.com/',
   },
   {
-    tag: 'AI & Fashion',
+    tag: 'Agentic SDLC',
     tagClass: 'blog-tag-violet',
-    accentGradient: 'linear-gradient(90deg, #ec4899, #f97316)',
-    title: 'How StyleSense AI is Redefining Virtual Try-On with Computer Vision',
+    accentGradient: 'linear-gradient(90deg, #8b5cf6, #06b6d4)',
+    title: 'Introducing Evolune OS: An Agent Team That Ships Software End-to-End',
     excerpt:
-      "Virtual try-on technology has come a long way. StyleSense AI uses cutting-edge computer vision and style intelligence to let users experience clothes virtually — before they buy. Here's the tech behind it.",
-    date: 'May 28, 2025',
+      'Evolune OS orchestrates a full team of AI agents through the entire software development lifecycle — planning, building, reviewing, and deploying — with humans in the loop where it matters most.',
+    date: 'Sep 4, 2026',
     readTime: '4 min read',
-    href: '#',
+    href: 'https://evoluneos.com',
   },
   {
     tag: 'Company',

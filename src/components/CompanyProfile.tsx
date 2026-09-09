@@ -7,8 +7,8 @@ const CompanyProfile: React.FC = () => {
 
   const stats = [
     { value: 'Feb 2025', label: 'Founded' },
-    { value: '4', label: 'Products' },
-    { value: '2', label: 'On App Stores' },
+    { value: '3', label: 'Products' },
+    { value: '2', label: 'Live Products' },
     { value: 'DPIIT', label: 'Recognised' },
   ];
 
@@ -60,12 +60,12 @@ const CompanyProfile: React.FC = () => {
 
   const products = [
     {
-      name: 'Cal Coach',
-      tagline: 'Your Personal Nutrition Guide',
+      name: 'Evolune OS',
+      tagline: 'The Agentic Software Development Platform',
       status: 'Live',
-      gradient: 'linear-gradient(135deg, #10b981, #06b6d4)',
-      icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
-      tag: 'Health & Wellness',
+      gradient: 'linear-gradient(135deg, #8b5cf6, #06b6d4)',
+      icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+      tag: 'Agentic SDLC',
     },
     {
       name: 'Flasqo',
@@ -74,14 +74,6 @@ const CompanyProfile: React.FC = () => {
       gradient: 'linear-gradient(135deg, #3b82f6, #6366f1)',
       icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
       tag: 'Developer Tools',
-    },
-    {
-      name: 'StyleSense AI',
-      tagline: 'Virtual Fashion & AI Styling',
-      status: 'Live',
-      gradient: 'linear-gradient(135deg, #ec4899, #f97316)',
-      icon: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01',
-      tag: 'Fashion & AI',
     },
     {
       name: 'Evo-MedX',
@@ -150,8 +142,8 @@ const CompanyProfile: React.FC = () => {
               </div>
               <p className="cp-about-body">
                 Evolune EdgeTech is a next-generation software company building intelligent products across
-                health, developer tools, AI, fashion, and medtech. Founded in February 2025, we've shipped
-                5 products in under a year — two live on app stores globally — and have been recognised by
+                agentic software development, developer tools, and medtech. Founded in February 2025, we've shipped
+                3 products in under a year — including Evolune OS, our agentic SDLC platform — and have been recognised by
                 some of India's most prestigious institutions.
               </p>
               <div className="cp-highlights-grid">

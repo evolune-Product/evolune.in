@@ -7,9 +7,8 @@ const Footer: React.FC = () => {
 
   const footerLinks = {
     Products: [
-      { name: 'Cal Coach', href: '#products' },
+      { name: 'Evolune OS', href: '#products' },
       { name: 'Flasqo', href: '#products' },
-{ name: 'StyleSense AI', href: '#products' },
       { name: 'Evo-MedX', href: '#products' },
     ],
     Company: [
