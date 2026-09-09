@@ -1,87 +1,108 @@
 import React from 'react';
 
-const blogPosts = [
+interface BlogPost {
+  tag: string;
+  tagClass: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  href: string;
+  image: string;
+  isExternal?: boolean;
+}
+
+const blogPosts: BlogPost[] = [
   {
     tag: 'Developer Tools',
-    tagClass: 'blog-tag-cyan',
-    accentGradient: 'linear-gradient(90deg, #22d3ee, #818cf8)',
-    title: 'Introducing Flasqo: 13 Types of API Testing in One Unified Platform',
+    tagClass: 'badge-beta',
+    title: 'Introducing Flasqo: Unifying 13 Testing Silos in a Single Engine',
     excerpt:
-      'API testing has always been fragmented — different tools for functional, performance, security, and load testing. Flasqo changes that by covering everything in one intelligent dashboard powered by AI.',
-    date: 'Jun 10, 2025',
+      'API testing has always been fragmented across separate smoke, chaos, load, and contract tools. Flasqo introduces a unified engine that cuts test cycle latency to under 50ms.',
+    date: 'Jun 2025',
     readTime: '5 min read',
     href: 'https://flasqo.com/',
+    image: '/images/flasqo-preview.jpg',
+    isExternal: true,
   },
   {
     tag: 'Agentic SDLC',
-    tagClass: 'blog-tag-violet',
-    accentGradient: 'linear-gradient(90deg, #8b5cf6, #06b6d4)',
-    title: 'Introducing Evolune OS: An Agent Team That Ships Software End-to-End',
+    tagClass: 'badge-live',
+    title: 'Evolune OS: Orchestrating Autonomous Agent Teams Across the SDLC',
     excerpt:
-      'Evolune OS orchestrates a full team of AI agents through the entire software development lifecycle — planning, building, reviewing, and deploying — with humans in the loop where it matters most.',
-    date: 'Sep 4, 2026',
+      'How we architected a multi-agent pipeline with deterministic AST verification, automated test synthesis, and human-in-the-loop quality gates.',
+    date: 'Sep 2026',
     readTime: '4 min read',
     href: 'https://evoluneos.com',
+    image: '/images/evolune-os-preview.jpg',
+    isExternal: true,
   },
   {
-    tag: 'Company',
-    tagClass: 'blog-tag-green',
-    accentGradient: 'linear-gradient(90deg, #10b981, #06b6d4)',
-    title: 'From Zero to IIT Madras: The Evolune EdgeTech Founding Story',
+    tag: 'Institutional Win',
+    tagClass: 'badge-soon',
+    title: 'I-Summit at IIT Madras: Building Developer Infrastructure from India',
     excerpt:
-      'We started Evolune EdgeTech in February 2025 with a simple belief — great software should solve real problems. Within months, we were pitching at IIT Madras E-Summit and winning PitchArena.',
-    date: 'May 5, 2025',
+      'The journey of taking Flasqo to IIT Madras I-Summit 2026, winning the summit, reaching the PitchArena finals, and being shortlisted by IIM Bangalore NSRCEL for incubation.',
+    date: 'May 2025',
     readTime: '6 min read',
-    href: '#',
+    href: '#company',
+    image: '/images/flasqo-preview.jpg',
+    isExternal: false,
   },
 ];
 
 const Blog: React.FC = () => {
   return (
-    <section id="blog" className="section blog-section">
+    <section id="blog" className="section">
       <div className="container">
-        <div className="section-header">
-          <span className="section-label">From the Team</span>
+        {/* Section Header */}
+        <div className="section-header reveal-up">
+          <span className="section-label">Engineering Insights</span>
           <h2 className="section-title">
-            Our <span className="text-gradient">Blog</span>
+            Dispatches from the <span className="text-gradient">Frontier.</span>
           </h2>
           <p className="section-subtitle">
-            Insights, product updates, and stories from the team building the future at Evolune EdgeTech.
+            Deep-dives into agentic systems architecture, API testing telemetry, and startup milestones from the Evolune EdgeTech team.
           </p>
         </div>
 
+        {/* Blog Grid */}
         <div className="blog-grid">
           {blogPosts.map((post, index) => (
-            <article
-              key={index}
-              className="blog-card"
-              style={{ '--card-accent': post.accentGradient } as React.CSSProperties}
-            >
-              <span className={`blog-tag ${post.tagClass}`}>{post.tag}</span>
-              <h3 className="blog-card-title">{post.title}</h3>
-              <p className="blog-card-excerpt">{post.excerpt}</p>
-              <div className="blog-card-meta">
-                <span>{post.date}</span>
-                <span className="blog-card-meta-dot" />
-                <span>{post.readTime}</span>
+            <article key={index} className="blog-card">
+              {/* Thumbnail Image */}
+              <div className="blog-thumb-wrapper">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="blog-thumb-img"
+                  loading="lazy"
+                />
               </div>
-              <a href={post.href} className="blog-card-link" target="_blank" rel="noopener noreferrer">
-                Read more
-                <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+
+              {/* Card Body */}
+              <div className="blog-card-body">
+                <div>
+                  <span className={`blog-tag ${post.tagClass}`}>{post.tag}</span>
+                  <h3 className="blog-title">{post.title}</h3>
+                  <p className="blog-excerpt">{post.excerpt}</p>
+                </div>
+
+                <div className="blog-meta-row">
+                  <span>{post.date} • {post.readTime}</span>
+                  <a
+                    href={post.href}
+                    className="blog-link"
+                    target={post.isExternal ? '_blank' : undefined}
+                    rel={post.isExternal ? 'noopener noreferrer' : undefined}
+                  >
+                    <span>Read publication</span>
+                    <span>→</span>
+                  </a>
+                </div>
+              </div>
             </article>
           ))}
-        </div>
-
-        <div className="blog-cta">
-          <a href="#" className="btn btn-outline">
-            View all posts
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
         </div>
       </div>
     </section>

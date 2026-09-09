@@ -1,321 +1,326 @@
 import React, { useState } from 'react';
 
-interface VisualStat {
-  emoji: string;
-  label: string;
-  value: string;
-}
+type ProductKey = 'evolune-os' | 'flasqo';
 
-interface Product {
+interface ProductData {
+  id: ProductKey;
   name: string;
   tagline: string;
+  category: string;
+  status: 'Live' | 'Beta' | 'Coming Soon';
+  badgeClass: string;
   description: string;
   features: string[];
-  icon: string;
-  gradientFrom: string;
-  gradientTo: string;
-  glowColor: string;
-  bgAccent: string;
-  status: 'Live' | 'Beta' | 'Coming Soon';
-  link?: string;
-  androidLink?: string;
-  iosLink?: string;
-  visualStats: VisualStat[];
-  visualTag: string;
+  primaryLink?: string;
+  primaryActionText?: string;
 }
 
-const products: Product[] = [
-  {
+const productsData: Record<ProductKey, ProductData> = {
+  'evolune-os': {
+    id: 'evolune-os',
     name: 'Evolune OS',
-    tagline: 'The Agentic Software Development Platform',
-    description:
-      'Evolune OS is an agentic SDLC platform that runs a full team of AI agents — planning, building, reviewing, and shipping software end-to-end. From idea to production, Evolune OS orchestrates the entire development lifecycle autonomously.',
-    features: [
-      'Autonomous agent team for full SDLC',
-      'End-to-end planning to deployment',
-      'AI code review & quality gates',
-      'Continuous shipping pipeline',
-      'Human-in-the-loop oversight',
-    ],
-    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-    gradientFrom: '#8b5cf6',
-    gradientTo: '#06b6d4',
-    glowColor: 'rgba(139, 92, 246, 0.25)',
-    bgAccent: 'rgba(139, 92, 246, 0.05)',
+    tagline: 'An Autonomous AI Engineering Team That Ships End-to-End',
+    category: 'Agentic SDLC Platform',
     status: 'Live',
-    link: 'https://evoluneos.com',
-    visualTag: 'Agentic SDLC',
-    visualStats: [
-      { emoji: '🤖', label: 'Agent Team', value: 'Live' },
-      { emoji: '🚀', label: 'Ship Speed', value: '10x faster' },
-      { emoji: '🔁', label: 'Full SDLC', value: 'Automated' },
-      { emoji: '✅', label: 'Code Review', value: 'AI-powered' },
+    badgeClass: 'badge-live',
+    description:
+      'Evolune OS orchestrates specialized autonomous agents (Architect, Coder, Reviewer, DevOps Engineer) across the entire software development lifecycle. From issue intake to production deployment, it automates testing, code review, and CI/CD with human-in-the-loop governance.',
+    features: [
+      'Autonomous multi-agent task planning & execution',
+      'Automated architectural design & spec verification',
+      'Strict AI code reviews with deterministic quality gates',
+      'Continuous autonomous deployment pipelines',
+      'Granular human-in-the-loop oversight & approvals',
     ],
+    primaryLink: 'https://evoluneos.com',
+    primaryActionText: 'Explore Evolune OS',
   },
-  {
+  'flasqo': {
+    id: 'flasqo',
     name: 'Flasqo',
-    tagline: '13 Types of Testing in One Unified Platform',
-    description:
-      'The AI-powered API testing platform built for teams that ship fast. Flasqo combines 13 powerful testing types in a single unified platform — from smoke and regression to GraphQL, contract, chaos, and full end-to-end browser execution. Catch bugs before your users do.',
-    features: [
-      'Smoke Testing',
-      'GraphQL Testing',
-      'Load Testing',
-      'Chaos Testing',
-      'Regression Testing',
-      'Contract Testing',
-      'Integration Testing',
-      'FullSend (E2E)',
-    ],
-    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-    gradientFrom: '#3b82f6',
-    gradientTo: '#6366f1',
-    glowColor: 'rgba(99, 102, 241, 0.25)',
-    bgAccent: 'rgba(59, 130, 246, 0.05)',
+    tagline: '13 Types of API Testing Unified in One Intelligent Engine',
+    category: 'Developer Tools & Reliability',
     status: 'Beta',
-    link: 'https://flasqo.com/',
-    visualTag: 'Developer Tools',
-    visualStats: [
-      { emoji: '✅', label: 'Tests Passed', value: '2,841' },
-      { emoji: '⚡', label: 'Avg Response', value: '142ms' },
-      { emoji: '🛡️', label: 'Vulnerabilities', value: '0 found' },
-      { emoji: '🔄', label: 'Test Types', value: '13 unified' },
-    ],
-  },
-  {
-    name: 'Evo-MedX',
-    tagline: 'Contactless Vitals from Your Camera',
+    badgeClass: 'badge-beta',
     description:
-      'The future of personal health monitoring. Evo-MedX uses remote photoplethysmography (rPPG) to measure your heart rate, SpO2, stress levels, and more — entirely contactless, just through your device camera.',
+      'PitchArena finalist at IIT Madras I-Summit 2026. Flasqo replaces fragmented testing silos with a single unified platform. Execute smoke, regression, load, chaos, GraphQL, contract, and full-send end-to-end browser tests in milliseconds before bugs ever reach production.',
     features: [
-      'Contactless heart rate via rPPG',
-      'Blood oxygen (SpO₂) estimation',
-      'Stress & HRV analysis',
-      'Respiratory rate detection',
-      'Real-time vitals dashboard',
+      '13 unified testing types in a single dashboard',
+      'Autonomous regression & contract drift detection',
+      'High-concurrency load & chaos injection testing',
+      'Zero-configuration GraphQL & REST schema validation',
+      'Sub-second test feedback loop for high-velocity teams',
     ],
-    icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
-    gradientFrom: '#06b6d4',
-    gradientTo: '#0ea5e9',
-    glowColor: 'rgba(6, 182, 212, 0.25)',
-    bgAccent: 'rgba(6, 182, 212, 0.05)',
-    status: 'Coming Soon',
-    visualTag: 'MedTech & AI',
-    visualStats: [
-      { emoji: '❤️', label: 'Heart Rate', value: 'Via Camera' },
-      { emoji: '🩸', label: 'SpO₂', value: 'Contactless' },
-      { emoji: '🧠', label: 'Stress Level', value: 'HRV-based' },
-      { emoji: '🌬️', label: 'Resp. Rate', value: 'Real-time' },
-    ],
+    primaryLink: 'https://flasqo.com',
+    primaryActionText: 'Launch Flasqo Beta',
   },
-];
+};
+
+const productImages: Record<ProductKey, { src: string; caption: string }> = {
+  'evolune-os': {
+    src: '/images/evolune-os-preview.jpg',
+    caption: 'Evolune OS — Agentic SDLC & Autonomous Team Interface',
+  },
+  'flasqo': {
+    src: '/images/flasqo-preview.jpg',
+    caption: 'Flasqo — 13 API Engines & Real-Time Telemetry Dashboard',
+  },
+};
 
 const Products: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const product = products[activeIndex];
+  const [activeTab, setActiveTab] = useState<ProductKey>('evolune-os');
+  const [activeStage, setActiveStage] = useState<number>(2);
+  const [canvasMode, setCanvasMode] = useState<'console' | 'mockup'>('console');
 
-  const gradient = `linear-gradient(135deg, ${product.gradientFrom}, ${product.gradientTo})`;
+  const activeProduct = productsData[activeTab];
 
   return (
-    <section id="products" className="section pe-section">
-      <div className="pe-container">
-        {/* Header */}
-        <div className="pe-header">
-          <span className="section-label">Our Products</span>
+    <section id="products" className="section">
+      <div className="container">
+        {/* Section Header */}
+        <div className="section-header reveal-up">
+          <span className="section-label">Flagship Engineering</span>
           <h2 className="section-title">
-            A Suite of <span className="text-gradient">Intelligent</span> Products
+            Intelligent Systems. <span className="text-gradient">Zero Compromise.</span>
           </h2>
           <p className="section-subtitle">
-            Each product is crafted to solve a real problem with precision, elegance, and scale.
+            Every Evolune product is built to eliminate fundamental engineering bottlenecks with autonomous intelligence, mathematical precision, and edge computing.
           </p>
         </div>
 
-        {/* Tab Bar */}
-        <div className="pe-tabs" role="tablist">
-          {products.map((p, i) => (
-            <button
-              key={p.name}
-              role="tab"
-              aria-selected={i === activeIndex}
-              className={`pe-tab ${i === activeIndex ? 'pe-tab-active' : ''}`}
-              onClick={() => setActiveIndex(i)}
-              style={i === activeIndex ? {
-                background: `linear-gradient(135deg, ${p.gradientFrom}22, ${p.gradientTo}22)`,
-                borderColor: `${p.gradientFrom}55`,
-                color: p.gradientFrom,
-              } : {}}
-            >
-              <div
-                className="pe-tab-icon"
-                style={i === activeIndex ? { background: gradient } : {}}
-              >
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={p.icon} />
-                </svg>
-              </div>
-              <span className="pe-tab-name">{p.name}</span>
-              <span className={`pe-tab-badge ${p.status === 'Live' ? 'badge-live' : p.status === 'Beta' ? 'badge-beta' : 'badge-coming'}`}>
-                {p.status}
-              </span>
-            </button>
-          ))}
-        </div>
-
-        {/* Showcase Panel */}
-        <div
-          className="pe-showcase"
-          key={activeIndex}
-          style={{ '--pe-glow': product.glowColor, '--pe-bg-accent': product.bgAccent } as React.CSSProperties}
-        >
-          {/* Ambient glow */}
-          <div className="pe-glow-orb" style={{ background: product.glowColor }} />
-
-          {/* Left — Product Info */}
-          <div className="pe-info">
-            <div className="pe-meta">
-              <span className={`product-badge-inline ${product.status === 'Live' ? 'badge-live' : product.status === 'Beta' ? 'badge-beta' : 'badge-coming'}`}>
-                {product.status === 'Live' ? '● Live' : product.status === 'Beta' ? '◐ Beta' : '◌ Coming Soon'}
-              </span>
-              <span className="pe-category">{product.visualTag}</span>
-            </div>
-
-            <h3 className="pe-product-name" style={{
-              background: gradient,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              {product.name}
-            </h3>
-            <p className="pe-tagline">{product.tagline}</p>
-            <p className="pe-description">{product.description}</p>
-
-            {/* Features */}
-            <ul className="pe-features">
-              {product.features.map((feat, i) => (
-                <li key={i} className="pe-feature">
-                  <svg
-                    className="pe-feature-check"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    style={{ color: product.gradientFrom }}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                  {feat}
-                </li>
-              ))}
-            </ul>
-
-            {/* CTAs */}
-            <div className="pe-cta-row">
-              {product.status === 'Coming Soon' ? (
-                <span className="pe-cta-coming-soon">
-                  <svg style={{ width: 16, height: 16 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Launching Soon
-                </span>
-              ) : (product.androidLink || product.iosLink) ? (
-                <>
-                  {product.androidLink && (
-                    <a
-                      href={product.androidLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pe-store-btn"
-                    >
-                      <svg className="pe-store-btn-icon" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.523 15.3414c-.5511-.0455-.9302-.4999-.9302-1.0381 0-.5607.3988-1.0156.9542-1.0156h.0069c.5542 0 .9486.455.9517 1.0156 0 .5382-.3975.9926-.9826 1.0381zm-11.1045 0c-.585-.0455-.9836-.4999-.9836-1.0381 0-.5607.4202-1.0156.9757-1.0156.5555 0 .9487.455.9518 1.0156 0 .5382-.3974.9926-.9439 1.0381zM8.0001 3.0391C8.0001 2.1665 8.5951 1.5 9.3871 1.5h5.2258c.7919 0 1.3869.6665 1.3869 1.5391v.8282h-8V3.0391zM5.2002 5.3673h13.5996c1.1044 0 2 .9522 2 2.127v11.3787c0 1.1748-.8956 2.127-2 2.127H5.2002c-1.1044 0-2-.9522-2-2.127V7.4943c0-1.1748.8956-2.127 2-2.127z"/>
-                      </svg>
-                      <div className="pe-store-btn-text">
-                        <span className="pe-store-btn-sub">GET IT ON</span>
-                        <span className="pe-store-btn-name">Google Play</span>
-                      </div>
-                    </a>
-                  )}
-                  {product.iosLink && (
-                    <a
-                      href={product.iosLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pe-store-btn"
-                    >
-                      <svg className="pe-store-btn-icon" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                      </svg>
-                      <div className="pe-store-btn-text">
-                        <span className="pe-store-btn-sub">Download on the</span>
-                        <span className="pe-store-btn-name">App Store</span>
-                      </div>
-                    </a>
-                  )}
-                </>
-              ) : (
-                <a
-                  href={product.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="pe-cta-btn"
-                  style={{ background: gradient }}
+        {/* Product Studio Showcase */}
+        <div className="product-studio">
+          {/* Studio Tab Navigation */}
+          <div className="studio-tabs" role="tablist">
+            {(Object.keys(productsData) as ProductKey[]).map((key) => {
+              const item = productsData[key];
+              const isActive = activeTab === key;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`studio-tab-btn ${isActive ? 'active' : ''}`}
+                  onClick={() => setActiveTab(key)}
                 >
-                  {product.status === 'Beta' ? 'Try Beta' : 'Open App'}
-                  <svg style={{ width: 16, height: 16, marginLeft: 8 }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              )}
-              <a href="#contact" className="pe-cta-ghost">
-                Learn More
-              </a>
-            </div>
+                  <span>{item.name}</span>
+                  <span className={`tab-badge ${item.badgeClass}`}>{item.status}</span>
+                </button>
+              );
+            })}
           </div>
 
-          {/* Right — Visual Showcase */}
-          <div className="pe-visual">
-            {/* Central icon orb */}
-            <div className="pe-visual-orb" style={{ background: gradient }}>
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ width: 52, height: 52, color: 'white' }}>
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={product.icon} />
-              </svg>
+          {/* Studio Body */}
+          <div className="studio-body">
+            {/* Left: Product Editorial Info */}
+            <div className="studio-info">
+              <div>
+                <div className="studio-category">
+                  <span>●</span>
+                  <span>{activeProduct.category}</span>
+                </div>
+                <h3 className="studio-product-title">{activeProduct.name}</h3>
+                <p className="studio-tagline">{activeProduct.tagline}</p>
+                <p className="studio-desc">{activeProduct.description}</p>
+
+                {/* Features list */}
+                <ul className="studio-features-list">
+                  {activeProduct.features.map((feat, idx) => (
+                    <li key={idx} className="studio-feature-item">
+                      <svg className="feature-check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="studio-actions">
+                {activeProduct.primaryLink ? (
+                  <a
+                    href={activeProduct.primaryLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
+                    {activeProduct.primaryActionText}
+                    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                ) : (
+                  <a href="#contact" className="btn btn-primary">
+                    {activeProduct.primaryActionText}
+                    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                )}
+                <a href="#contact" className="btn btn-secondary">
+                  Discuss Integration
+                </a>
+              </div>
             </div>
 
-            {/* Floating stat cards */}
-            <div className="pe-stat-grid">
-              {product.visualStats.map((stat, i) => (
-                <div
-                  key={i}
-                  className="pe-stat-card"
-                  style={{ animationDelay: `${i * 0.08}s` }}
-                >
-                  <span className="pe-stat-emoji">{stat.emoji}</span>
-                  <div className="pe-stat-content">
-                    <span className="pe-stat-label">{stat.label}</span>
-                    <span className="pe-stat-value" style={{ color: product.gradientFrom }}>
-                      {stat.value}
-                    </span>
+            {/* Right: Interactive Live Simulator Canvas / Mockup */}
+            <div className="studio-canvas">
+              {/* Canvas Toolbar with View Switcher */}
+              <div className="canvas-toolbar">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--accent-emerald)', boxShadow: '0 0 8px var(--accent-emerald)' }} />
+                  <span style={{ fontSize: '0.8125rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
+                    {canvasMode === 'console' ? 'Interactive Telemetry' : 'High-Resolution UI Mockup'}
+                  </span>
+                </div>
+                <div className="canvas-mode-switch">
+                  <button
+                    type="button"
+                    className={`canvas-mode-btn ${canvasMode === 'console' ? 'active' : ''}`}
+                    onClick={() => setCanvasMode('console')}
+                  >
+                    Console
+                  </button>
+                  <button
+                    type="button"
+                    className={`canvas-mode-btn ${canvasMode === 'mockup' ? 'active' : ''}`}
+                    onClick={() => setCanvasMode('mockup')}
+                  >
+                    UI Mockup
+                  </button>
+                </div>
+              </div>
+
+              {/* Mode 1: High-Res UI Mockup Render */}
+              {canvasMode === 'mockup' && (
+                <div className="canvas-mockup-wrapper">
+                  <img
+                    src={productImages[activeTab].src}
+                    alt={activeProduct.name}
+                    className="canvas-mockup-img"
+                    loading="lazy"
+                  />
+                  <div className="canvas-mockup-caption">
+                    <span>{productImages[activeTab].caption}</span>
+                    <span className="mono-chip">4K Render</span>
                   </div>
                 </div>
-              ))}
+              )}
+
+              {/* Mode 2: Interactive Console Simulation */}
+              {canvasMode === 'console' && (
+                <>
+                  {/* 1. Evolune OS Live Pipeline Simulation */}
+                  {activeTab === 'evolune-os' && (
+                    <div className="agent-pipeline-box">
+                      <div className="console-header">
+                        <div className="console-dots">
+                          <span className="console-dot dot-red" />
+                          <span className="console-dot dot-yellow" />
+                          <span className="console-dot dot-green" />
+                        </div>
+                        <span className="console-title">Evolune OS — Agent Orchestration Engine</span>
+                        <span className="mono-chip" style={{ color: 'var(--accent-emerald)' }}>Active Session</span>
+                      </div>
+
+                      <div className="agent-stages">
+                        {[
+                          { role: 'ARC', name: 'Architect Agent', task: 'Synthesizing API specs & DB schema', status: 'Completed', done: true },
+                          { role: 'DEV', name: 'Developer Agent', task: 'Writing type-safe TypeScript implementation', status: 'Completed', done: true },
+                          { role: 'REV', name: 'Reviewer Agent', task: 'Validating AST rules & static security', status: 'Running Analysis', active: true },
+                          { role: 'OPS', name: 'DevOps Agent', task: 'Automated container build & canary deploy', status: 'Queued', done: false },
+                        ].map((st, i) => (
+                          <div
+                            key={i}
+                            className={`agent-stage-row ${activeStage === i ? 'active-stage' : ''}`}
+                            onClick={() => setActiveStage(i)}
+                            style={{ cursor: 'pointer' }}
+                          >
+                            <div className="stage-identity">
+                              <div className="stage-role-icon">{st.role}</div>
+                              <div>
+                                <div className="stage-name">{st.name}</div>
+                                <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{st.task}</div>
+                              </div>
+                            </div>
+                            <div className="stage-status">
+                              {st.done && <span className="status-done">✓ Done</span>}
+                              {st.active && <span className="status-active">● {st.status}</span>}
+                              {!st.done && !st.active && <span style={{ color: 'var(--text-muted)' }}>◌ {st.status}</span>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div style={{ padding: '0.85rem 1.25rem', borderTop: '1px solid var(--border-subtle)', background: 'rgba(0,0,0,0.3)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Human-in-the-loop gate: <strong style={{ color: '#fff' }}>Enabled</strong></span>
+                        <span className="mono-chip">Latency: 14ms</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 2. Flasqo 13-in-1 Test Runner Simulation */}
+                  {activeTab === 'flasqo' && (
+                    <div className="test-runner-box">
+                      <div className="console-header">
+                        <div className="console-dots">
+                          <span className="console-dot dot-red" />
+                          <span className="console-dot dot-yellow" />
+                          <span className="console-dot dot-green" />
+                        </div>
+                        <span className="console-title">Flasqo v2.4 — 13 Testing Engines Unified</span>
+                        <span className="mono-chip" style={{ color: '#fcd34d' }}>PitchArena Finalist</span>
+                      </div>
+
+                      <div className="test-grid-summary">
+                        <div className="test-summary-stat">
+                          <div className="test-stat-val" style={{ color: 'var(--accent-emerald)' }}>2,841</div>
+                          <div className="test-stat-lbl">Assertions Passed</div>
+                        </div>
+                        <div className="test-summary-stat">
+                          <div className="test-stat-val" style={{ color: 'var(--accent-cyan-light)' }}>42ms</div>
+                          <div className="test-stat-lbl">Avg Response</div>
+                        </div>
+                        <div className="test-summary-stat">
+                          <div className="test-stat-val" style={{ color: '#ffffff' }}>0</div>
+                          <div className="test-stat-lbl">Vulnerabilities</div>
+                        </div>
+                      </div>
+
+                      <div className="test-suites-list">
+                        {[
+                          { name: 'Smoke & Functional Suite', time: '14ms', type: 'Instant', state: 'PASS' },
+                          { name: 'GraphQL Query & Mutation Contract', time: '28ms', type: 'Schema Valid', state: 'PASS' },
+                          { name: 'Chaos Network Latency & Drop Simulation', time: '64ms', type: 'Resilient', state: 'PASS' },
+                          { name: 'High-Concurrency Load (10,000 req/s)', time: '82ms', type: '99.99% Ok', state: 'PASS' },
+                          { name: 'FullSend E2E Browser Journey', time: '120ms', type: 'DOM Validated', state: 'PASS' },
+                        ].map((suite, idx) => (
+                          <div key={idx} className="test-suite-row">
+                            <div className="test-type-name">
+                              <span style={{ color: 'var(--accent-emerald)' }}>✓</span>
+                              <span>{suite.name}</span>
+                            </div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                              <span className="test-metric-tag">{suite.time}</span>
+                              <span className="mono-chip">{suite.state}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div style={{ padding: '0.85rem 1.25rem', borderTop: '1px solid var(--border-subtle)', background: 'rgba(0,0,0,0.3)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Status: <strong style={{ color: 'var(--accent-emerald)' }}>Production Ready</strong></span>
+                        <a href="https://flasqo.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.75rem', color: 'var(--accent-cyan-light)', textDecoration: 'none' }}>flasqo.com ↗</a>
+                      </div>
+                    </div>
+                  )}
+
+                </>
+              )}
             </div>
-
-            {/* Decorative ring */}
-            <div className="pe-visual-ring" style={{ borderColor: `${product.gradientFrom}22` }} />
           </div>
-        </div>
-
-        {/* Product navigation dots */}
-        <div className="pe-dots">
-          {products.map((p, i) => (
-            <button
-              key={i}
-              className={`pe-dot ${i === activeIndex ? 'pe-dot-active' : ''}`}
-              onClick={() => setActiveIndex(i)}
-              style={i === activeIndex ? { background: p.gradientFrom } : {}}
-              aria-label={`Switch to ${p.name}`}
-            />
-          ))}
         </div>
       </div>
     </section>
