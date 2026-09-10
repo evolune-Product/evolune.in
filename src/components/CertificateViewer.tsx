@@ -43,7 +43,7 @@ const CertificateViewer: React.FC<CertificateViewerProps> = ({ isOpen, onClose }
               <h3 className="cert-title">Startup India Recognition Certificate</h3>
               <div className="cert-sub">
                 <span>DPIIT Certificate No: </span>
-                <strong style={{ color: '#fcd34d' }}>DIPP238722</strong>
+                <strong style={{ color: 'var(--accent-amber)' }}>DIPP238722</strong>
               </div>
             </div>
           </div>

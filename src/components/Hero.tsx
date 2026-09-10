@@ -73,19 +73,19 @@ const Hero: React.FC<HeroProps> = ({ onOpenCertificate }) => {
           {/* Trust Telemetry Bar */}
           <div className="trust-bar">
             <div className="trust-item">
-              <span className="trust-metric" style={{ color: 'var(--accent-amber)' }}>IIT Madras '26</span>
+              <span className="trust-metric">IIT Madras '26</span>
               <span className="trust-label">I-Summit Winner</span>
             </div>
             <div className="trust-item">
-              <span className="trust-metric" style={{ color: 'var(--accent-indigo-light)' }}>DIPP238722</span>
+              <span className="trust-metric">DIPP238722</span>
               <span className="trust-label">Govt. of India Certified</span>
             </div>
             <div className="trust-item">
-              <span className="trust-metric" style={{ color: 'var(--accent-emerald)' }}>IIM Bangalore</span>
+              <span className="trust-metric">IIM Bangalore</span>
               <span className="trust-label">NSRCEL Shortlisted</span>
             </div>
             <div className="trust-item">
-              <span className="trust-metric" style={{ color: 'var(--accent-cyan-light)' }}>13 Engines</span>
+              <span className="trust-metric">13 Engines</span>
               <span className="trust-label">Unified in Flasqo</span>
             </div>
           </div>

@@ -271,7 +271,7 @@ const Products: React.FC = () => {
                           <span className="console-dot dot-green" />
                         </div>
                         <span className="console-title">Flasqo v2.4 — 13 Testing Engines Unified</span>
-                        <span className="mono-chip" style={{ color: '#fcd34d' }}>PitchArena Finalist</span>
+                        <span className="mono-chip" style={{ color: 'var(--accent-amber)' }}>PitchArena Finalist</span>
                       </div>
 
                       <div className="test-grid-summary">

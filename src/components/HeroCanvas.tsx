@@ -26,7 +26,7 @@ const HeroCanvas: React.FC = () => {
 
     // ---- Core: layered icosahedron wireframes ----
     const coreGroup = new THREE.Group();
-    const coreColors = [0x3b6bff, 0x8a7c6f, 0x5b82ff];
+    const coreColors = [0x7c5cff, 0x9d8bff, 0x6e6ad2];
     coreColors.forEach((color, i) => {
       const geo = new THREE.IcosahedronGeometry(2.1 + i * 0.55, 1);
       const mat = new THREE.MeshBasicMaterial({
@@ -45,10 +45,10 @@ const HeroCanvas: React.FC = () => {
     const PARTICLE_COUNT = window.innerWidth < 768 ? 700 : 1600;
     const positions = new Float32Array(PARTICLE_COUNT * 3);
     const palette = [
-      new THREE.Color(0x1d4ed8),
-      new THREE.Color(0x8a8178),
-      new THREE.Color(0x0a0a0a),
-      new THREE.Color(0x3b6bff),
+      new THREE.Color(0x7c5cff),
+      new THREE.Color(0xffffff),
+      new THREE.Color(0x9d8bff),
+      new THREE.Color(0x6e6ad2),
     ];
     const colors = new Float32Array(PARTICLE_COUNT * 3);
     for (let i = 0; i < PARTICLE_COUNT; i++) {

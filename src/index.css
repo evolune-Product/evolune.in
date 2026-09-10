@@ -1,75 +1,104 @@
 /* ==========================================================================
    EVOLUNE EDGETECH — DESIGN SYSTEM
-   Light, Geist/Vercel-style workspace: pure white canvas, near-black type,
-   one signal-ember accent. Dark "console" simulation cards are the only
-   deliberate contrast surfaces (see --console-* tokens further down).
+   Dark, engineered workspace. Synthesized from studying Linear (restrained
+   medium-weight type, hairline "moonlight" borders, one functional accent),
+   Vercel/Geist (systematic gray + spacing ramps, sharp containers vs. pill
+   CTAs, negative tracking at display sizes) and Apple's product-section
+   discipline (one dominant moment, generous whitespace) — not a clone of
+   any single one of them.
    ========================================================================== */
 
 :root {
-  /* Color Palette — warm off-white canvas */
-  --bg-base: #f7f1e6;
-  --bg-subtle: #f0e8d7;
-  --bg-surface: #e8ddc5;
-  --bg-elevated: #ded0b1;
-  --bg-overlay: rgba(247, 241, 230, 0.88);
-  --bg-card: #fbf7ef;
-  --bg-card-hover: #f3ead8;
+  /* ---- Background ramp — near-black base, each step a deliberate stop ---- */
+  --bg-base: #08080a;
+  --bg-subtle: #0c0c10;
+  --bg-surface: #111114;
+  --bg-elevated: #18181c;
+  --bg-card: #0e0e11;
+  --bg-card-hover: #151518;
+  --bg-overlay: rgba(8, 8, 11, 0.82);
 
-  /* Borders & Dividers */
-  --border-subtle: rgba(6, 6, 6, 0.08);
-  --border-default: rgba(6, 6, 6, 0.13);
-  --border-strong: rgba(6, 6, 6, 0.24);
-  --border-glow: rgba(29, 78, 216, 0.4);
+  /* ---- Borders — hairline system: structure felt, not seen ----
+     "Wireframes drawn in moonlight" — thin, translucent white, never a
+     heavy boxed-card outline. */
+  --border-hairline: rgba(255, 255, 255, 0.05);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.16);
 
-  /* Typography */
-  --text-primary: #0a0a0a;
-  --text-secondary: #57534e;
-  --text-muted: #8c8781;
-  --text-dark: #0a0a0a;
+  /* ---- Neutral text ramp — deliberate steps, not scattered opacities ---- */
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.62);
+  --text-muted: rgba(255, 255, 255, 0.42);
+  --text-faint: rgba(255, 255, 255, 0.28);
 
-  /* Tint used for hover/overlay washes — near-black on this light theme */
-  --tint-rgb: 6, 6, 6;
+  /* Tint used for hover/overlay washes — white on this dark theme */
+  --tint-rgb: 255, 255, 255;
 
-  /* Signature accent — Signal Blue */
-  --accent-indigo: #1d4ed8;
-  --accent-indigo-light: #3b6bff;
-  --accent-indigo-dim: rgba(29, 78, 216, 0.08);
-  --accent-cyan: #5c6b60;
-  --accent-cyan-light: #46574c;
-  --accent-cyan-dim: rgba(92, 107, 96, 0.1);
-  --accent-emerald: #4d7a34;
-  --accent-emerald-dim: rgba(77, 122, 52, 0.1);
-  --accent-amber: #b5790f;
-  --accent-amber-dim: rgba(181, 121, 15, 0.1);
-  --accent-rose: #c23c2e;
-  --accent-rose-dim: rgba(194, 60, 46, 0.1);
+  /* ---- Signature accent — single functional violet ----
+     Spent only on primary CTAs, links, active/focus states and small
+     status signals. Never a decorative wash across large surfaces. */
+  --accent-indigo: #7c5cff;
+  --accent-indigo-light: #9d8bff;
+  --accent-indigo-hover: #6e6ad2;
+  --accent-indigo-dim: rgba(124, 92, 255, 0.14);
 
-  /* Dedicated dark "console" surface — used only by the terminal-style
-     product simulator cards, independent of the page theme */
-  --console-bg: #0a0a0c;
-  --console-surface: #0d0f14;
-  --console-text: #f5f1ea;
-  --console-text-secondary: #a9a9b4;
-  --console-text-muted: #84848f;
+  /* "Cyan" kept as a token name for backward compatibility across
+     components, but aliased to the same functional violet so no second
+     decorative brand hue competes with it. */
+  --accent-cyan: #7c5cff;
+  --accent-cyan-light: #9d8bff;
+  --accent-cyan-dim: rgba(124, 92, 255, 0.14);
 
-  /* Typography Stacks */
+  /* Status signals — meaningful, not decorative: shipped/live vs. award/beta */
+  --accent-emerald: #10b981;
+  --accent-emerald-dim: rgba(16, 185, 129, 0.12);
+  --accent-amber: #f59e0b;
+  --accent-amber-dim: rgba(245, 158, 11, 0.12);
+
+  /* ---- Typography stacks ----
+     One controlled sans for everything (UI + headlines), monospace
+     reserved strictly for small technical accents: eyebrow labels,
+     section index numbers, nav micro-labels, console/code blocks. */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Archivo', -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  /* Corner radius — sharper, editorial, not pill-everything */
-  --radius-sm: 3px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
+  /* ---- Radius scale — sharp containers, pill-only CTAs ----
+     Deliberate geometric contrast: content surfaces stay tight (8-14px),
+     standalone action elements go fully round. */
+  --radius-2xs: 4px;
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+  --radius-pill: 9999px;
 
-  /* Shadows & Ambient Glows */
-  --shadow-sm: 0 1px 2px 0 rgba(6, 6, 6, 0.05);
-  --shadow-md: 0 4px 16px -2px rgba(6, 6, 6, 0.08), 0 2px 6px -2px rgba(6, 6, 6, 0.05);
-  --shadow-lg: 0 12px 32px -4px rgba(6, 6, 6, 0.12), 0 4px 12px -2px rgba(6, 6, 6, 0.06);
-  --shadow-glow: 0 0 32px -4px rgba(29, 78, 216, 0.2);
-  --shadow-cyan-glow: 0 0 32px -4px rgba(92, 107, 96, 0.15);
+  /* ---- Spacing scale — 4px to 192px, tight components / generous sections --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 160px;
+  --space-12: 192px;
 
-  /* Transitions */
+  /* ---- Shadows — grounding cues for floating/overlay surfaces ----
+     On a near-black canvas, elevation reads mainly through the bg + border
+     ramp; shadow is reserved for true floating chrome (navbar, modals)
+     and hover-lift reinforcement, not stamped under every card. */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -2px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px -8px rgba(0, 0, 0, 0.6), 0 6px 18px -4px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 32px -6px rgba(124, 92, 255, 0.22);
+
+  /* ---- Transitions ---- */
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: 150ms var(--ease-spring);
   --transition-normal: 250ms var(--ease-spring);
@@ -85,7 +114,7 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 body {
@@ -96,20 +125,38 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  /* Ambient "blueprint" texture — barely-there structural grid, not a
+     visible checkerboard. Kept as a body background layer (not a
+     separate element) so it never fights with content stacking. */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center top;
 }
 
 ::selection {
-  background: rgba(29, 78, 216, 0.18);
+  background: rgba(124, 92, 255, 0.32);
+  color: #ffffff;
+}
+
+/* Headings — restrained medium weight, not heavy bold. Negative tracking
+   scales up with size; the largest display moment (.hero-headline) is the
+   one deliberate exception that steps up to the semibold emphasis weight. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 510;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   color: var(--text-primary);
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-  color: var(--text-primary);
+/* Deliberate, branded keyboard focus — never the bare browser default,
+   never silently suppressed. :focus-visible keeps it out of the way for
+   mouse users. */
+:focus-visible {
+  outline: 2px solid var(--accent-indigo);
+  outline-offset: 2px;
 }
 
 /* Custom Scrollbar */
@@ -122,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(var(--tint-rgb), 0.15);
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
   border: 2px solid var(--bg-base);
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -146,18 +193,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Section Wrapper */
+/* Section Wrapper — tight internal rhythm, generous gaps between sections */
 .section {
   position: relative;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: var(--space-11);
+    padding-bottom: var(--space-11);
   }
 }
 
@@ -165,7 +212,7 @@ h1, h2, h3, h4, h5, h6 {
 .section-header {
   text-align: center;
   max-width: 44rem;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto var(--space-9) auto;
 }
 
 .section-label {
@@ -182,22 +229,21 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
 
 .section-title {
   font-size: 2.25rem;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.025em;
   margin-bottom: 1.25rem;
 }
 
 @media (min-width: 768px) {
   .section-title {
     font-size: 3.25rem;
+    letter-spacing: -0.032em;
   }
 }
 
@@ -213,35 +259,34 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Signature accent word — a solid color, not a rainbow gradient */
+/* Signature accent word — a solid functional color, not a rainbow gradient
+   or a decorative italic flourish. */
 .text-gradient {
-  color: var(--accent-indigo);
-  font-style: italic;
+  color: var(--accent-indigo-light);
 }
 
 .text-gradient-cyan {
   color: var(--accent-cyan-light);
-  font-style: italic;
 }
 
 .text-gradient-gold {
   color: var(--accent-amber);
-  font-style: italic;
 }
 
-/* Button System */
+/* Button System — all CTAs are fully pill-shaped, a deliberate contrast
+   against the sharp 8-14px containers everywhere else on the page. */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 0.9375rem;
-  font-weight: 600;
+  font-weight: 590;
   line-height: 1;
   text-decoration: none;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-pill);
   cursor: pointer;
   transition: all var(--transition-normal);
   border: 1px solid transparent;
@@ -249,15 +294,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-  background: var(--text-primary);
-  color: var(--bg-base);
-  border-color: var(--text-primary);
+  background: var(--accent-indigo);
+  color: #ffffff;
+  border-color: var(--accent-indigo);
 }
 
 .btn-primary:hover {
-  background: #2a2a2a;
-  border-color: #2a2a2a;
+  background: var(--accent-indigo-hover);
+  border-color: var(--accent-indigo-hover);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
 }
 
 .btn-primary:active {
@@ -271,7 +317,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary:hover {
-  background: rgba(var(--tint-rgb), 0.04);
+  background: rgba(var(--tint-rgb), 0.05);
   border-color: var(--border-strong);
 }
 
@@ -293,24 +339,24 @@ h1, h2, h3, h4, h5, h6 {
 .btn-sm {
   padding: 0.5rem 1rem;
   font-size: 0.8125rem;
-  border-radius: var(--radius-sm);
 }
 
-/* Subtle Ambient Glow Orbs */
+/* Subtle Ambient Glow Orbs — pulled back to a quiet, functional presence
+   rather than a decorative wash covering the hero. */
 .ambient-glow {
   position: absolute;
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
   pointer-events: none;
   filter: blur(100px);
-  opacity: 0.45;
+  opacity: 0.28;
   z-index: 0;
 }
 
 /* Glass Card */
 .glass-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-normal);
   position: relative;
@@ -321,7 +367,7 @@ h1, h2, h3, h4, h5, h6 {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(420px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(29, 78, 216, 0.08), transparent 55%);
+  background: radial-gradient(420px circle at var(--spot-x, 50%) var(--spot-y, 50%), rgba(124, 92, 255, 0.10), transparent 55%);
   opacity: 0;
   transition: opacity var(--transition-normal);
   pointer-events: none;
@@ -337,12 +383,12 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-lg);
 }
 
-/* Monospace Chip */
+/* Monospace Chip — small technical accent, per the type system above */
 .mono-chip {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   padding: 0.2rem 0.5rem;
-  border-radius: 6px;
+  border-radius: var(--radius-xs);
   background: rgba(var(--tint-rgb), 0.045);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
@@ -411,4 +457,3 @@ h1, h2, h3, h4, h5, h6 {
 .justify-between { justify-content: space-between; }
 .w-full { width: 100%; }
 .text-center { text-align: center; }
-
