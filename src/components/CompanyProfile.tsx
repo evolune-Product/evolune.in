@@ -36,7 +36,7 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({ onOpenCertificate }) =>
               </p>
             </div>
             <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <span className="mono-chip" style={{ color: '#fcd34d' }}>IIT Madras Campus</span>
+              <span className="mono-chip" style={{ color: 'var(--text-primary)' }}>IIT Madras Campus</span>
               <span className="mono-chip">Developer Tools</span>
             </div>
           </div>
@@ -107,7 +107,7 @@ const CompanyProfile: React.FC<CompanyProfileProps> = ({ onOpenCertificate }) =>
               </p>
             </div>
             <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <span className="mono-chip" style={{ color: '#fcd34d' }}>IITM E-Cell</span>
+              <span className="mono-chip" style={{ color: 'var(--text-primary)' }}>IITM E-Cell</span>
               <span className="mono-chip">Chennai, India</span>
             </div>
           </div>

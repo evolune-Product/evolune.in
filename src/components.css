@@ -262,7 +262,7 @@
   border-radius: 100px;
   background: rgba(245, 158, 11, 0.08);
   border: 1px solid rgba(245, 158, 11, 0.25);
-  color: #fcd34d;
+  color: var(--text-primary);
   font-size: 0.8125rem;
   font-weight: 600;
   margin-bottom: 2rem;
@@ -1039,7 +1039,7 @@
 
 .cred-badge-gold {
   background: var(--accent-amber-dim);
-  color: #fcd34d;
+  color: var(--text-primary);
   border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
@@ -1539,7 +1539,7 @@
 .footer-section {
   border-top: 1px solid var(--border-subtle);
   background: var(--bg-subtle);
-  padding-top: 5rem;
+  padding-top: 3rem;
   padding-bottom: 3rem;
 }
 
