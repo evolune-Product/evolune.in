@@ -605,6 +605,18 @@
   transform: scale(1.02);
 }
 
+.canvas-mockup-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: #6b6b76;
+  font-family: var(--font-mono);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
 .canvas-mockup-caption {
   position: absolute;
   bottom: 0;

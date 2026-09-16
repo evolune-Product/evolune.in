@@ -90,6 +90,11 @@ const Footer: React.FC<FooterProps> = ({ onOpenCertificate }) => {
                   Flasqo (API Testing) ↗
                 </a>
               </li>
+              <li>
+                <a href="https://spendveto.com" target="_blank" rel="noopener noreferrer" className="footer-link">
+                  SpendVeto (Agent Payment Governance) ↗
+                </a>
+              </li>
             </ul>
           </div>
 
