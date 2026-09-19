@@ -21,7 +21,7 @@ export default function ProductsPage() {
         <div className="container-page relative">
           <SectionHeading
             eyebrow="Product Ecosystem"
-            title={<>Two products. <span className="text-gradient">Zero compromise.</span></>}
+            title={<>Three products. <span className="text-gradient">Zero compromise.</span></>}
             subtitle="Each Evolune product eliminates a fundamental engineering bottleneck with autonomous intelligence and mathematical precision."
           />
         </div>
