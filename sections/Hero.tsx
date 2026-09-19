@@ -1,14 +1,12 @@
-import { HeroPlanet, Starfield, OrbitalLines } from '@/components/backgrounds';
+import { SectionImage, OrbitalLines } from '@/components/backgrounds';
 import { PrimaryLink, SecondaryLink, ArrowRight } from '@/components/Buttons';
 import { Reveal } from '@/components/Reveal';
 
 export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-base-900 pt-28 pb-20">
-      <Starfield density={160} />
-      <OrbitalLines />
-      <HeroPlanet />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-base-900/40 to-base-900" />
+      <SectionImage src="/images/backgrounds/hero_homepage.jpg" alt="Earth from orbit at night" priority opacity={0.75} />
+      <OrbitalLines className="opacity-60" />
 
       <div className="container-page relative z-10">
         <Reveal className="mx-auto max-w-4xl text-center">

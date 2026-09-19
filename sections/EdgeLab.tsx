@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { SectionHeading } from '@/components/SectionHeading';
 import { Reveal } from '@/components/Reveal';
-import { GridOverlay, NebulaGlow } from '@/components/backgrounds';
+import { GridOverlay, NebulaGlow, SectionImage } from '@/components/backgrounds';
 
 const stack = [
   { label: 'Multi-Agent Orchestration', detail: 'Specialized agent roles coordinating under deterministic constraints.' },
@@ -13,6 +13,7 @@ const stack = [
 export function EdgeLab() {
   return (
     <section className="relative overflow-hidden bg-base-900 py-24 md:py-32">
+      <SectionImage src="/images/backgrounds/edge_lab.jpg" alt="" opacity={0.35} overlay="dark" />
       <NebulaGlow />
       <GridOverlay />
       <div className="container-page relative">

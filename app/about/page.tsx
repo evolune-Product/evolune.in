@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { SectionHeading } from '@/components/SectionHeading';
 import { Reveal } from '@/components/Reveal';
-import { NebulaGlow, Starfield, GridOverlay } from '@/components/backgrounds';
+import { NebulaGlow, GridOverlay, SectionImage } from '@/components/backgrounds';
 import { philosophy, site } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-base-900 pt-40 pb-20">
-        <Starfield density={100} />
+        <SectionImage src="/images/backgrounds/about_company.jpg" alt="" priority opacity={0.55} />
         <NebulaGlow />
         <div className="container-page relative">
           <Reveal className="mx-auto max-w-3xl text-center">

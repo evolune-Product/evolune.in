@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Reveal } from '@/components/Reveal';
 import { ContactForm } from '@/components/ContactForm';
-import { Starfield, NebulaGlow } from '@/components/backgrounds';
+import { NebulaGlow, SectionImage } from '@/components/backgrounds';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <section className="relative overflow-hidden bg-base-900 pt-40 pb-28 min-h-screen">
-      <Starfield density={100} />
+      <SectionImage src="/images/backgrounds/contact_cta.jpg" alt="" priority opacity={0.45} />
       <NebulaGlow />
       <div className="container-page relative">
         <Reveal className="mx-auto max-w-2xl text-center mb-16">

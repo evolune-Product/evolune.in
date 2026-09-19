@@ -1,11 +1,11 @@
 import { Reveal } from '@/components/Reveal';
 import { PrimaryLink, ArrowRight } from '@/components/Buttons';
-import { NebulaGlow, Starfield } from '@/components/backgrounds';
+import { NebulaGlow, SectionImage } from '@/components/backgrounds';
 
 export function CTA() {
   return (
     <section className="relative overflow-hidden bg-base-900 py-28 md:py-36">
-      <Starfield density={80} />
+      <SectionImage src="/images/backgrounds/space_exploration.jpg" alt="" opacity={0.5} />
       <NebulaGlow />
       <div className="container-page relative text-center">
         <Reveal>

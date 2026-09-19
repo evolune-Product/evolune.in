@@ -1,9 +1,10 @@
 import { Reveal } from '@/components/Reveal';
-import { GridOverlay } from '@/components/backgrounds';
+import { GridOverlay, SectionImage } from '@/components/backgrounds';
 
 export function CompanyIntro() {
   return (
     <section className="relative border-t border-white/5 bg-base-900 py-24 md:py-32">
+      <SectionImage src="/images/backgrounds/office_company.jpg" alt="" opacity={0.22} overlay="dark" />
       <GridOverlay />
       <div className="container-page relative">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">

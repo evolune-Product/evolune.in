@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { SectionHeading } from '@/components/SectionHeading';
 import { Reveal } from '@/components/Reveal';
-import { NebulaGlow, Starfield, OrbitalLines, GridOverlay } from '@/components/backgrounds';
+import { NebulaGlow, OrbitalLines, GridOverlay, SectionImage } from '@/components/backgrounds';
 
 export const metadata: Metadata = {
   title: 'Technology & Edge Lab',
@@ -42,8 +42,8 @@ export default function TechnologyPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-base-900 pt-40 pb-20">
-        <Starfield density={120} />
-        <OrbitalLines />
+        <SectionImage src="/images/backgrounds/technology_background.jpg" alt="" priority opacity={0.6} />
+        <OrbitalLines className="opacity-50" />
         <div className="container-page relative">
           <Reveal className="mx-auto max-w-3xl text-center">
             <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-brand-cyan/80 mb-4">
@@ -80,6 +80,7 @@ export default function TechnologyPage() {
       </section>
 
       <section className="relative overflow-hidden bg-base-900 py-20 md:py-28">
+        <SectionImage src="/images/backgrounds/edge_lab.jpg" alt="" opacity={0.35} overlay="dark" />
         <NebulaGlow />
         <GridOverlay />
         <div className="container-page relative">

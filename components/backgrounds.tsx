@@ -3,7 +3,49 @@
 // CSS/SVG-only cinematic backgrounds. No external imagery — see README for
 // which sections use these placeholders vs. real assets.
 
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+
+/**
+ * Full-bleed photographic section background (real generated imagery, not CSS/SVG).
+ * Renders behind content with a dark gradient scrim for text legibility.
+ */
+export function SectionImage({
+  src,
+  alt,
+  priority = false,
+  opacity = 1,
+  overlay = 'gradient-b',
+  className = '',
+}: {
+  src: string;
+  alt: string;
+  priority?: boolean;
+  opacity?: number;
+  overlay?: 'gradient-b' | 'gradient-t' | 'dark' | 'none';
+  className?: string;
+}) {
+  return (
+    <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden="true">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes="100vw"
+        className="object-cover"
+        style={{ opacity }}
+      />
+      {overlay === 'gradient-b' && (
+        <div className="absolute inset-0 bg-gradient-to-b from-base-900/30 via-base-900/50 to-base-900" />
+      )}
+      {overlay === 'gradient-t' && (
+        <div className="absolute inset-0 bg-gradient-to-t from-base-900/30 via-base-900/50 to-base-900" />
+      )}
+      {overlay === 'dark' && <div className="absolute inset-0 bg-base-900/60" />}
+    </div>
+  );
+}
 
 /** Canvas starfield — lightweight, respects prefers-reduced-motion. */
 export function Starfield({ density = 140, className = '' }: { density?: number; className?: string }) {

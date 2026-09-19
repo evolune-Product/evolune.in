@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { SectionHeading } from '@/components/SectionHeading';
 import { Reveal } from '@/components/Reveal';
-import { Starfield, NebulaGlow } from '@/components/backgrounds';
+import { NebulaGlow, SectionImage } from '@/components/backgrounds';
 import { PrimaryLink, ArrowRight } from '@/components/Buttons';
 import { site } from '@/lib/site';
 
@@ -21,7 +21,7 @@ export default function CareersPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-base-900 pt-40 pb-20">
-        <Starfield density={100} />
+        <SectionImage src="/images/backgrounds/careers.jpg" alt="" priority opacity={0.55} />
         <NebulaGlow />
         <div className="container-page relative">
           <Reveal className="mx-auto max-w-3xl text-center">
