@@ -1,9 +1,13 @@
 import Image from 'next/image';
 
-// Real orbital logo assets supplied by the founder (brand-kit concept sheet),
-// cropped and matted onto the brand-dark background:
-//   /public/logo.png            — icon mark, square, for nav/compact use + favicon seed
-//   /public/images/brand-kit/logo_main_clean_full.png — full lockup (icon + wordmark + tagline)
+// Real orbital logo — authoritative source: founder's "brand-v2" drop
+// (public/images/brand-v2/), the third and final asset round. Supersedes
+// both the earlier brand-kit/ and site-corrected/ logo crops.
+//   /public/logo.png — icon mark, cropped + matted onto brand-dark, derived
+//     from brand-v2/03_app_icon.png. Used for nav/compact use, favicon, and
+//     app icon (see app/icon.png, app/apple-icon.png).
+//   /public/images/brand-v2/01_logo_primary_dark.png — full lockup (icon +
+//     wordmark + tagline), used where space allows and to build the OG image.
 export function Logo({ size = 36 }: { size?: number }) {
   return (
     <Image
@@ -32,10 +36,10 @@ export function BrandLockup({ size = 36 }: { size?: number }) {
 
 /** Full real lockup image (icon + wordmark + tagline) — used where space allows, e.g. hero credibility or About. */
 export function FullLockupImage({ className = '', width = 260 }: { className?: string; width?: number }) {
-  const height = Math.round((width * 278) / 376);
+  const height = Math.round((width * 213) / 330);
   return (
     <Image
-      src="/images/brand-kit/logo_main_clean_full.png"
+      src="/images/brand-v2/01_logo_primary_dark.png"
       alt="Evolune EdgeTech — Explore, Build, Evolve"
       width={width}
       height={height}

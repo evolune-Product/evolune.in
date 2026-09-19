@@ -45,13 +45,17 @@ Three live products, each with real facts sourced from the founder / existing si
 
 ## Imagery notes
 
-- **Logo (final):** `/public/logo.png` (icon mark) and `/public/images/brand-kit/logo_main_clean_full.png` (full
-  lockup) — the founder's real orbital logo, used in header/footer/favicon/app-icon/OG image. A later "corrected"
-  asset drop (`/public/images/site-corrected/`) was intended to supersede these, but on inspection every file in
-  that folder still has baked-in caption/label text burned into the pixels (e.g. "01 LOGO (PRIMARY)", "07 HERO
-  BACKGROUND (WEBSITE)") — the same issue as the first brand-kit drop. Per the "fall back to CSS/SVG if a file
-  still looks artifacted" rule, the whole `site-corrected/` folder is kept as **art-direction reference only**,
-  and the original label-free brand-kit logo assets remain the shipped final logo/favicon/OG image.
+- **Logo (final, third and authoritative round):** `/public/images/brand-v2/` — genuinely clean, label-free logo
+  files confirmed by the founder. `01_logo_primary_dark.png` is the full lockup (icon + wordmark + tagline),
+  referenced directly by `components/Logo.tsx`'s `FullLockupImage` and used to build `public/og-image.png`.
+  `03_app_icon.png` was cropped (darkness-threshold bbox, Pillow) and matted onto the brand-dark background to
+  produce `public/images/icon-mark-512.png`, which is resized into `public/logo.png` (nav/footer icon),
+  `app/icon.png` (favicon), and `app/apple-icon.png` (apple touch icon). This round supersedes both earlier logo
+  drops.
+  - Two earlier rounds are kept only as history/reference, not used: `/public/images/brand-kit/` (first drop —
+    used briefly, later superseded) and `/public/images/site-corrected/` (second drop — every file in it turned
+    out to have baked-in caption/label text burned into the pixels, e.g. "01 LOGO (PRIMARY)", "07 HERO BACKGROUND
+    (WEBSITE)", so none of it was ever shipped).
 - **Product logos (real, final):** `/public/images/products/evoluneos-logo.png` (Evolune OS app icon) and a
   cropped `/public/images/products/flasqo-logo-card.png` (Flasqo mark + wordmark, auto-cropped from
   `flasqo-logo.png` to drop the surrounding gray canvas, shown on its native light chip) are the founders' actual
