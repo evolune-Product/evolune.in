@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-base-900 pt-40 pb-20">
-        <SectionImage src="/images/backgrounds/about_company.jpg" alt="" priority opacity={0.55} />
+        <SectionImage src="/assets/evolune/backgrounds/about-company.jpg" alt="About Evolune EdgeTech architecture" priority opacity={0.55} />
         <NebulaGlow />
         <div className="container-page relative">
           <Reveal className="mx-auto max-w-3xl text-center">

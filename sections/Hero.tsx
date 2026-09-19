@@ -5,7 +5,7 @@ import { Reveal } from '@/components/Reveal';
 export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-base-900 pt-28 pb-20">
-      <SectionImage src="/images/backgrounds/hero_homepage.jpg" alt="Earth from orbit at night" priority opacity={0.75} />
+      <SectionImage src="/assets/evolune/backgrounds/hero-homepage.jpg" alt="Earth from orbit at night — Evolune EdgeTech" priority opacity={0.75} />
       <OrbitalLines className="opacity-60" />
 
       <div className="container-page relative z-10">

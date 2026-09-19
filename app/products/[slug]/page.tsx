@@ -90,11 +90,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         </div>
       </section>
 
-      {/* Screenshot */}
+      {/* Dashboard Interface */}
       <section className="relative bg-base-900 py-20 md:py-28">
         <div className="container-page">
           <Reveal>
-            <BrowserFrame src={product.image} alt={`${product.name} screenshot`} url={product.url.replace('https://', '')} priority />
+            <BrowserFrame src={product.dashboardImage || product.image} alt={`${product.name} dashboard interface`} url={product.url.replace('https://', '')} priority />
           </Reveal>
         </div>
       </section>

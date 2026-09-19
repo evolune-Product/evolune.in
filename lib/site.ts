@@ -67,6 +67,8 @@ export interface Product {
   status: 'Live' | 'Beta' | 'Live · Open Source';
   url: string;
   image: string;
+  heroImage?: string;
+  dashboardImage?: string;
   /** Real product logo asset (icon/lockup), distinct from `image` (product screenshot). */
   logo?: string;
   openSource?: boolean;
@@ -87,7 +89,9 @@ export const products: Product[] = [
     pillar: 'AI & Intelligent Systems',
     status: 'Live',
     url: 'https://evoluneos.com',
-    image: '/images/evolune-os-preview.jpg',
+    image: '/assets/evolune/products/evoluneos-hero.jpg',
+    heroImage: '/assets/evolune/products/evoluneos-hero.jpg',
+    dashboardImage: '/assets/evolune/products/evoluneos-dashboard.jpg',
     logo: '/images/products/evoluneos-logo.png',
     statement:
       'Software delivery should not depend on human bandwidth for every line of code. Evolune OS gives engineering teams an autonomous team of specialized agents that plans, builds, reviews, and ships — with humans directing intent, not typing every commit.',
@@ -121,7 +125,9 @@ export const products: Product[] = [
     pillar: 'Digital Products',
     status: 'Beta',
     url: 'https://flasqo.com',
-    image: '/images/flasqo-preview.jpg',
+    image: '/assets/evolune/products/flasqo-hero.jpg',
+    heroImage: '/assets/evolune/products/flasqo-hero.jpg',
+    dashboardImage: '/assets/evolune/products/flasqo-dashboard.jpg',
     logo: '/images/products/flasqo-logo-card.png',
     statement:
       'API testing shouldn’t require thirteen different tools glued together with scripts. Flasqo is a single, unified engine that runs every kind of test your API needs — before a regression ever reaches production.',
@@ -155,7 +161,9 @@ export const products: Product[] = [
     pillar: 'AI & Intelligent Systems',
     status: 'Live · Open Source',
     url: 'https://spendveto.com',
-    image: '/images/products/spendveto-og-reference.png',
+    image: '/assets/evolune/products/spendveto-hero.jpg',
+    heroImage: '/assets/evolune/products/spendveto-hero.jpg',
+    dashboardImage: '/assets/evolune/products/spendveto-dashboard.jpg',
     openSource: true,
     statement:
       'Rails move the money; SpendVeto decides whether the agent is allowed to move it — before anything settles. As AI agents start paying for things directly, someone has to hold the veto.',

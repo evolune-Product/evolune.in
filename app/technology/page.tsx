@@ -42,7 +42,7 @@ export default function TechnologyPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-base-900 pt-40 pb-20">
-        <SectionImage src="/images/backgrounds/technology_background.jpg" alt="" priority opacity={0.6} />
+        <SectionImage src="/assets/evolune/backgrounds/technology.jpg" alt="Evolune EdgeTech technology architecture" priority opacity={0.6} />
         <OrbitalLines className="opacity-50" />
         <div className="container-page relative">
           <Reveal className="mx-auto max-w-3xl text-center">
@@ -80,7 +80,7 @@ export default function TechnologyPage() {
       </section>
 
       <section className="relative overflow-hidden bg-base-900 py-20 md:py-28">
-        <SectionImage src="/images/backgrounds/edge_lab.jpg" alt="" opacity={0.35} overlay="dark" />
+        <SectionImage src="/assets/evolune/backgrounds/edge-lab.jpg" alt="Evolune Edge Lab research facility" opacity={0.35} overlay="dark" />
         <NebulaGlow />
         <GridOverlay />
         <div className="container-page relative">

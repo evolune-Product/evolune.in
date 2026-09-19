@@ -10,9 +10,9 @@ const icons = [
 ];
 
 const pillarImages = [
-  '/images/backgrounds/ai_intelligence.jpg',
-  '/images/backgrounds/technology_background.jpg',
-  '/images/backgrounds/autonomous_systems.jpg',
+  '/assets/evolune/backgrounds/ai-intelligence.jpg',
+  '/assets/evolune/backgrounds/technology.jpg',
+  '/assets/evolune/backgrounds/autonomous-systems.jpg',
 ];
 
 export function Pillars() {

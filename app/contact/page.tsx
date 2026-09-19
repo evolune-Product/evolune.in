@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <section className="relative overflow-hidden bg-base-900 pt-40 pb-28 min-h-screen">
-      <SectionImage src="/images/backgrounds/contact_cta.jpg" alt="" priority opacity={0.45} />
+      <SectionImage src="/assets/evolune/backgrounds/contact.jpg" alt="Let's build what comes next — contact Evolune" priority opacity={0.5} />
       <NebulaGlow />
       <div className="container-page relative">
         <Reveal className="mx-auto max-w-2xl text-center mb-16">

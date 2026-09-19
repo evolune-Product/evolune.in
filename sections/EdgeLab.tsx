@@ -13,7 +13,7 @@ const stack = [
 export function EdgeLab() {
   return (
     <section className="relative overflow-hidden bg-base-900 py-24 md:py-32">
-      <SectionImage src="/images/backgrounds/edge_lab.jpg" alt="" opacity={0.35} overlay="dark" />
+      <SectionImage src="/assets/evolune/backgrounds/edge-lab.jpg" alt="Evolune Edge Lab research facility" opacity={0.35} overlay="dark" />
       <NebulaGlow />
       <GridOverlay />
       <div className="container-page relative">

@@ -4,7 +4,7 @@ import { SectionHeading } from '@/components/SectionHeading';
 import { Reveal } from '@/components/Reveal';
 import { BrowserFrame } from '@/components/DeviceFrame';
 import { ProductLogo } from '@/components/ProductLogo';
-import { NebulaGlow, Starfield } from '@/components/backgrounds';
+import { NebulaGlow, Starfield, SectionImage } from '@/components/backgrounds';
 import { products, statusBadgeClass } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -16,7 +16,8 @@ export default function ProductsPage() {
   return (
     <>
       <section className="relative overflow-hidden bg-base-900 pt-40 pb-20">
-        <Starfield density={100} />
+        <SectionImage src="/assets/evolune/backgrounds/space-exploration.jpg" alt="Evolune Product Ecosystem" priority opacity={0.35} />
+        <Starfield density={80} />
         <NebulaGlow />
         <div className="container-page relative">
           <SectionHeading

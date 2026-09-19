@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       'Evolune EdgeTech architects autonomous agentic platforms and unified developer reliability engines. Creators of Evolune OS, Flasqo, and SpendVeto.',
     url: `https://${site.domain}`,
     siteName: 'Evolune EdgeTech',
-    images: ['/og-image.png'],
+    images: ['/assets/evolune/social/og-image.jpg'],
     locale: 'en_US',
     type: 'website',
   },
@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     title: 'Evolune EdgeTech — Building What Comes Next',
     description:
       'Evolune EdgeTech architects autonomous agentic platforms and unified developer reliability engines.',
-    images: ['/og-image.png'],
+    images: ['/assets/evolune/social/og-image.jpg'],
   },
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/assets/evolune/brand/favicon.png',
+    apple: '/assets/evolune/brand/logo-icon.png',
   },
 };
 
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'Organization',
     name: site.legalName,
     url: `https://${site.domain}`,
-    logo: `https://${site.domain}/logo.png`,
+    logo: `https://${site.domain}/assets/evolune/brand/logo-icon.png`,
     foundingDate: '2025-02',
     email: site.email,
     address: {

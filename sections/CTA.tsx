@@ -5,7 +5,7 @@ import { NebulaGlow, SectionImage } from '@/components/backgrounds';
 export function CTA() {
   return (
     <section className="relative overflow-hidden bg-base-900 py-28 md:py-36">
-      <SectionImage src="/images/backgrounds/space_exploration.jpg" alt="" opacity={0.5} />
+      <SectionImage src="/assets/evolune/backgrounds/contact.jpg" alt="Let's build what comes next" opacity={0.5} />
       <NebulaGlow />
       <div className="container-page relative text-center">
         <Reveal>

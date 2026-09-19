@@ -11,7 +11,7 @@ import Image from 'next/image';
 export function Logo({ size = 36 }: { size?: number }) {
   return (
     <Image
-      src="/logo.png"
+      src="/assets/evolune/brand/logo-icon.png"
       alt="Evolune EdgeTech"
       width={size}
       height={size}
@@ -36,10 +36,10 @@ export function BrandLockup({ size = 36 }: { size?: number }) {
 
 /** Full real lockup image (icon + wordmark + tagline) — used where space allows, e.g. hero credibility or About. */
 export function FullLockupImage({ className = '', width = 260 }: { className?: string; width?: number }) {
-  const height = Math.round((width * 213) / 330);
+  const height = Math.round((width * 400) / 1600);
   return (
     <Image
-      src="/images/brand-v2/01_logo_primary_dark.png"
+      src="/assets/evolune/brand/logo-primary-dark.png"
       alt="Evolune EdgeTech — Explore, Build, Evolve"
       width={width}
       height={height}
