@@ -56,7 +56,7 @@ export const credentials = [
   },
 ];
 
-export type ProductSlug = 'evolune-os' | 'flasqo';
+export type ProductSlug = 'evolune-os' | 'flasqo' | 'spendveto';
 
 export interface Product {
   slug: ProductSlug;
@@ -64,9 +64,12 @@ export interface Product {
   tagline: string;
   category: string;
   pillar: 'AI & Intelligent Systems' | 'Digital Products';
-  status: 'Live' | 'Beta';
+  status: 'Live' | 'Beta' | 'Live · Open Source';
   url: string;
   image: string;
+  /** Real product logo asset (icon/lockup), distinct from `image` (product screenshot). */
+  logo?: string;
+  openSource?: boolean;
   statement: string;
   description: string;
   capabilities: string[];
@@ -85,6 +88,7 @@ export const products: Product[] = [
     status: 'Live',
     url: 'https://evoluneos.com',
     image: '/images/evolune-os-preview.jpg',
+    logo: '/images/products/evoluneos-logo.png',
     statement:
       'Software delivery should not depend on human bandwidth for every line of code. Evolune OS gives engineering teams an autonomous team of specialized agents that plans, builds, reviews, and ships — with humans directing intent, not typing every commit.',
     description:
@@ -118,6 +122,7 @@ export const products: Product[] = [
     status: 'Beta',
     url: 'https://flasqo.com',
     image: '/images/flasqo-preview.jpg',
+    logo: '/images/products/flasqo-logo-card.png',
     statement:
       'API testing shouldn’t require thirteen different tools glued together with scripts. Flasqo is a single, unified engine that runs every kind of test your API needs — before a regression ever reaches production.',
     description:
@@ -140,6 +145,40 @@ export const products: Product[] = [
       { value: '13', label: 'Testing Engines Unified' },
       { value: '<50ms', label: 'Test Cycle Latency' },
       { value: 'Beta', label: 'PitchArena Finalist' },
+    ],
+  },
+  {
+    slug: 'spendveto',
+    name: 'SpendVeto',
+    tagline: 'The Spend-Governance Layer for AI Agents',
+    category: 'AI Agent Payment Governance',
+    pillar: 'AI & Intelligent Systems',
+    status: 'Live · Open Source',
+    url: 'https://spendveto.com',
+    image: '/images/products/spendveto-og-reference.png',
+    openSource: true,
+    statement:
+      'Rails move the money; SpendVeto decides whether the agent is allowed to move it — before anything settles. As AI agents start paying for things directly, someone has to hold the veto.',
+    description:
+      'SpendVeto is the spend-governance layer for AI agents that pay for things, built on x402 and MCP. It sits between an agent and the payment rail, enforcing policy controls, approvals, budgets, and spend scoping before a transaction is allowed to settle — with a kill switch and a hash-chained audit ledger for every decision. Open source, and submitted to ETHOnline 2026 (Round 1 judging: Hedera, World, ENS).',
+    capabilities: [
+      'Policy controls and pre-settlement approvals for agent payments',
+      'Budgets and granular spend scoping per agent',
+      'Kill switch to instantly halt an agent’s spending authority',
+      'Hash-chained audit ledger with verifiable receipts for every decision',
+      'Built on x402 + MCP — works with agents that pay for things directly',
+    ],
+    howItWorks: [
+      { step: 'Intercept', detail: 'An AI agent requests a payment through the x402/MCP payment rail.' },
+      { step: 'Evaluate', detail: 'SpendVeto checks the request against policy, budget, and spend-scope rules.' },
+      { step: 'Gate', detail: 'The transaction is approved, blocked, or escalated — before anything settles.' },
+      { step: 'Record', detail: 'Every decision is written to a hash-chained, verifiable audit ledger.' },
+    ],
+    technology: ['x402 payment protocol', 'MCP (Model Context Protocol)', 'Policy engine & budget scoping', 'Hash-chained audit ledger'],
+    metrics: [
+      { value: 'Open Source', label: 'License Model' },
+      { value: 'x402 + MCP', label: 'Built On' },
+      { value: 'ETHOnline 2026', label: 'Round 1 Judging' },
     ],
   },
 ];
@@ -181,6 +220,13 @@ export const philosophy = [
     desc: 'Founded in February 2025, recognised by DPIIT, and winner of IIT Madras I-Summit with a PitchArena finals run in our first year. We measure success strictly by software that actually ships.',
   },
 ];
+
+export function statusBadgeClass(status: Product['status']): string {
+  if (status === 'Live' || status === 'Live · Open Source') {
+    return 'bg-emerald-400/10 text-emerald-300 border border-emerald-400/30';
+  }
+  return 'bg-amber-400/10 text-amber-300 border border-amber-400/30';
+}
 
 export const navLinks = [
   { href: '/about', label: 'About' },

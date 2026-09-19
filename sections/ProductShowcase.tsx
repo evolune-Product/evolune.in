@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { SectionHeading } from '@/components/SectionHeading';
 import { Reveal } from '@/components/Reveal';
 import { BrowserFrame } from '@/components/DeviceFrame';
-import { products } from '@/lib/site';
+import { ProductLogo } from '@/components/ProductLogo';
+import { products, statusBadgeClass } from '@/lib/site';
 
 export function ProductShowcase() {
   return (
@@ -27,22 +28,19 @@ export function ProductShowcase() {
               </Reveal>
               <Reveal delay={0.1}>
                 <div className="flex items-center gap-3 mb-4">
-                  <span
-                    className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                      product.status === 'Live'
-                        ? 'bg-emerald-400/10 text-emerald-300 border border-emerald-400/30'
-                        : 'bg-amber-400/10 text-amber-300 border border-amber-400/30'
-                    }`}
-                  >
+                  <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusBadgeClass(product.status)}`}>
                     {product.status}
                   </span>
                   <span className="text-xs font-mono uppercase tracking-widest text-brand-silver/50">
                     {product.category}
                   </span>
                 </div>
-                <h3 className="font-display text-2xl md:text-3xl font-semibold text-brand-white mb-3">
-                  {product.name}
-                </h3>
+                <div className="flex items-center gap-3 mb-3">
+                  <ProductLogo product={product} size={36} />
+                  <h3 className="font-display text-2xl md:text-3xl font-semibold text-brand-white">
+                    {product.name}
+                  </h3>
+                </div>
                 <p className="text-brand-cyan/90 font-medium mb-4">{product.tagline}</p>
                 <p className="text-brand-silver/75 leading-relaxed mb-6">{product.description}</p>
                 <ul className="space-y-2.5 mb-8">

@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Reveal } from '@/components/Reveal';
 import { BrowserFrame } from '@/components/DeviceFrame';
+import { ProductLogo } from '@/components/ProductLogo';
 import { PrimaryLink, SecondaryLink, ArrowRight } from '@/components/Buttons';
 import { NebulaGlow, Starfield, GridOverlay } from '@/components/backgrounds';
-import { products, site } from '@/lib/site';
+import { products, site, statusBadgeClass } from '@/lib/site';
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -33,7 +34,10 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     description: product.description,
     applicationCategory: product.category,
     url: product.url,
-    offers: { '@type': 'Offer', availability: product.status === 'Live' ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder' },
+    offers: {
+      '@type': 'Offer',
+      availability: product.status.startsWith('Live') ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder',
+    },
     publisher: { '@type': 'Organization', name: site.legalName },
   };
 
@@ -48,16 +52,18 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         <div className="container-page relative">
           <Reveal className="mx-auto max-w-3xl text-center">
             <div className="mb-6 flex items-center justify-center gap-3">
-              <span
-                className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                  product.status === 'Live'
-                    ? 'bg-emerald-400/10 text-emerald-300 border border-emerald-400/30'
-                    : 'bg-amber-400/10 text-amber-300 border border-amber-400/30'
-                }`}
-              >
+              <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusBadgeClass(product.status)}`}>
                 {product.status}
               </span>
               <span className="text-xs font-mono uppercase tracking-widest text-brand-silver/50">{product.category}</span>
+              {product.openSource && (
+                <span className="rounded-full border border-white/15 px-3 py-1 text-xs font-semibold text-brand-silver/80">
+                  Open Source
+                </span>
+              )}
+            </div>
+            <div className="mb-5 flex items-center justify-center gap-3">
+              <ProductLogo product={product} size={44} />
             </div>
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-brand-white leading-tight">
               {product.name}

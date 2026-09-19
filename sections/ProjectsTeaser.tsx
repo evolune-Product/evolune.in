@@ -14,7 +14,7 @@ export function ProjectsTeaser() {
         <Reveal className="mx-auto max-w-3xl text-center">
           <div className="glow-card rounded-2xl p-10 md:p-14">
             <p className="text-brand-silver/75 leading-relaxed mb-8">
-              Beyond Evolune OS and Flasqo, our team runs continuous internal R&D — prototyping deterministic
+              Beyond Evolune OS, Flasqo, and SpendVeto, our team runs continuous internal R&D — prototyping deterministic
               verification techniques, agentic tooling, and edge-computing experiments before they graduate into
               flagship products.
             </p>

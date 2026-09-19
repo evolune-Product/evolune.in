@@ -32,7 +32,7 @@ export default function ProjectsPage() {
           <SectionHeading
             eyebrow="Internal R&D"
             title="Always building, always testing"
-            subtitle="Beyond Evolune OS and Flasqo, our team runs continuous internal experimentation — prototyping deterministic verification techniques, agentic tooling, and edge-computing ideas before they graduate into products."
+            subtitle="Beyond Evolune OS, Flasqo, and SpendVeto, our team runs continuous internal experimentation — prototyping deterministic verification techniques, agentic tooling, and edge-computing ideas before they graduate into products."
           />
           <Reveal className="mx-auto max-w-2xl text-center">
             <div className="glow-card rounded-2xl p-10">

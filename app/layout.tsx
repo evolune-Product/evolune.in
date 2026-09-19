@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     template: '%s — Evolune EdgeTech',
   },
   description:
-    'Evolune EdgeTech architects autonomous agentic platforms and unified developer reliability engines. Creators of Evolune OS and Flasqo.',
+    'Evolune EdgeTech architects autonomous agentic platforms and unified developer reliability engines. Creators of Evolune OS, Flasqo, and SpendVeto.',
   openGraph: {
     title: 'Evolune EdgeTech — Building What Comes Next',
     description:
-      'Evolune EdgeTech architects autonomous agentic platforms and unified developer reliability engines. Creators of Evolune OS and Flasqo.',
+      'Evolune EdgeTech architects autonomous agentic platforms and unified developer reliability engines. Creators of Evolune OS, Flasqo, and SpendVeto.',
     url: `https://${site.domain}`,
     siteName: 'Evolune EdgeTech',
     images: ['/og-image.png'],

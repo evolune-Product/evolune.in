@@ -23,8 +23,8 @@ export function Hero() {
 
           <p className="mx-auto mt-7 max-w-2xl text-lg md:text-xl text-brand-silver/80 leading-relaxed">
             Evolune EdgeTech engineers autonomous, intelligent platforms — an agentic SDLC engine that ships
-            software end-to-end, and a unified API reliability engine that replaces thirteen fragmented testing
-            tools with one.
+            software end-to-end, a unified API reliability engine that replaces thirteen fragmented testing tools
+            with one, and an open-source spend-governance layer for AI agents that pay for things.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

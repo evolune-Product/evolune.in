@@ -66,6 +66,11 @@ export function Footer() {
                   Flasqo
                 </Link>
               </li>
+              <li>
+                <Link href="/products/spendveto" className="text-brand-silver/80 hover:text-brand-cyan">
+                  SpendVeto
+                </Link>
+              </li>
             </ul>
           </div>
 

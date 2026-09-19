@@ -108,12 +108,12 @@ export default function AboutPage() {
               Where We're Going
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-semibold text-brand-white leading-tight mb-6">
-              From two flagship products to an ecosystem of autonomous engineering infrastructure.
+              From three flagship products to an ecosystem of autonomous engineering infrastructure.
             </h2>
             <p className="text-brand-silver/75 leading-relaxed">
-              Evolune OS and Flasqo are the first two systems in a longer roadmap of autonomous, deterministic
-              engineering tools — all built on the same principles of agency, rigor, density, and velocity that
-              got us here.
+              Evolune OS, Flasqo, and SpendVeto are the first systems in a longer roadmap of autonomous,
+              deterministic engineering tools — all built on the same principles of agency, rigor, density, and
+              velocity that got us here.
             </p>
           </Reveal>
         </div>
