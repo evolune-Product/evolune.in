@@ -1,8 +1,4 @@
-> **Note (Sept 2026):** The site was rebuilt as a Next.js (App Router) app. The Vite/Nginx/Contabo VPS guide below
-> describes the OLD stack and is kept for historical reference only. See `README.md` for the current Next.js +
-> Vercel deployment path — a Node runtime is required, so this static Nginx setup no longer applies as-is.
-
-# Deployment Guide — Evolune Portfolio (Contabo VPS) [LEGACY — pre-Next.js]
+# Deployment Guide — Evolune Portfolio (Contabo VPS)
 
 This is a **React + Vite** static site. The build output is served via **Nginx**.
 Server: **Ubuntu 24.04 LTS** | IP: **194.163.143.160** | Domain: **evolune.in**
