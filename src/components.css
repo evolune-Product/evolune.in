@@ -156,14 +156,18 @@
   display: block;
 }
 
-.nvidia-badge-link--nav {
-  display: none;
+.nvidia-badge-img--lg {
+  height: 44px;
 }
 
-@media (min-width: 860px) {
-  .nvidia-badge-link--nav {
-    display: inline-flex;
-  }
+.nvidia-strip {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.nvidia-strip .nvidia-badge-img {
+  height: 38px;
 }
 
 .nav-btn-cta {

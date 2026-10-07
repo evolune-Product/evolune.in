@@ -63,6 +63,23 @@ function App() {
       <Navbar onOpenCertificate={openCertificate} />
       <main style={{ flex: 1 }}>
         <Hero onOpenCertificate={openCertificate} />
+
+        <div className="nvidia-strip">
+          <a
+            href="https://www.nvidia.com/en-us/startups/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nvidia-badge-link"
+            title="Evolune EdgeTech, an NVIDIA Inception program member"
+          >
+            <img
+              src="/nvidia-inception-badge.svg"
+              alt="NVIDIA Inception Program Member"
+              className="nvidia-badge-img"
+            />
+          </a>
+        </div>
+
         <Products />
         <Features />
         <CompanyProfile onOpenCertificate={openCertificate} />

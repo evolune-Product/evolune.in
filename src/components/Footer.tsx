@@ -50,7 +50,7 @@ const Footer: React.FC<FooterProps> = ({ onOpenCertificate }) => {
                 <img
                   src="/nvidia-inception-badge.svg"
                   alt="NVIDIA Inception Program Member"
-                  className="nvidia-badge-img"
+                  className="nvidia-badge-img nvidia-badge-img--lg"
                 />
               </a>
             </div>
