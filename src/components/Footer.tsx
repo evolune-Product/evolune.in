@@ -27,18 +27,33 @@ const Footer: React.FC<FooterProps> = ({ onOpenCertificate }) => {
               Pioneering autonomous agentic platforms, unified API testing engines, and contactless edge health intelligence from India to the world.
             </p>
 
-            {/* DPIIT Badge */}
-            {onOpenCertificate && (
-              <button
-                type="button"
-                onClick={onOpenCertificate}
-                className="btn btn-secondary btn-sm"
-                style={{ alignSelf: 'flex-start', marginBottom: '1.5rem', gap: '0.5rem' }}
+            {/* Trust Badges */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+              {onOpenCertificate && (
+                <button
+                  type="button"
+                  onClick={onOpenCertificate}
+                  className="btn btn-secondary btn-sm"
+                  style={{ gap: '0.5rem' }}
+                >
+                  <span style={{ color: '#f59e0b' }}>★</span>
+                  <span>DPIIT Certified • DIPP238722</span>
+                </button>
+              )}
+              <a
+                href="https://www.nvidia.com/en-us/startups/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nvidia-badge-link"
+                title="Evolune EdgeTech, an NVIDIA Inception program member"
               >
-                <span style={{ color: '#f59e0b' }}>★</span>
-                <span>DPIIT Certified • DIPP238722</span>
-              </button>
-            )}
+                <img
+                  src="/nvidia-inception-badge.svg"
+                  alt="NVIDIA Inception Program Member"
+                  className="nvidia-badge-img"
+                />
+              </a>
+            </div>
 
             {/* Social Links */}
             <div className="social-links-row">
@@ -146,11 +161,16 @@ const Footer: React.FC<FooterProps> = ({ onOpenCertificate }) => {
         {/* Bottom Bar */}
         <div className="footer-bottom-bar">
           <p>© {currentYear} Evolune EdgeTech. All rights reserved.</p>
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
             <span style={{ color: 'var(--text-muted)' }}>DPIIT Recognised Startup</span>
             <span style={{ color: 'var(--text-muted)' }}>I-Summit Winner, IIT Madras</span>
+            <span style={{ color: 'var(--text-muted)' }}>Evolune EdgeTech, an NVIDIA Inception program member</span>
           </div>
         </div>
+
+        <p className="footer-legal-fineprint">
+          © {currentYear} NVIDIA, the NVIDIA logo, and NVIDIA Inception are trademarks and/or registered trademarks of NVIDIA Corporation in the U.S. and other countries.
+        </p>
       </div>
     </footer>
   );

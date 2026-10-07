@@ -61,6 +61,19 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCertificate }) => {
 
           {/* Action CTAs */}
           <div className="nav-actions">
+            <a
+              href="https://www.nvidia.com/en-us/startups/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nvidia-badge-link nvidia-badge-link--nav"
+              title="Evolune EdgeTech, an NVIDIA Inception program member"
+            >
+              <img
+                src="/nvidia-inception-badge.svg"
+                alt="NVIDIA Inception Program Member"
+                className="nvidia-badge-img"
+              />
+            </a>
             {onOpenCertificate && (
               <button
                 type="button"
@@ -131,6 +144,20 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCertificate }) => {
           </a>
 
           <div style={{ paddingTop: '0.75rem', borderTop: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <a
+              href="https://www.nvidia.com/en-us/startups/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nvidia-badge-link"
+              style={{ alignSelf: 'flex-start' }}
+              title="Evolune EdgeTech, an NVIDIA Inception program member"
+            >
+              <img
+                src="/nvidia-inception-badge.svg"
+                alt="NVIDIA Inception Program Member"
+                className="nvidia-badge-img"
+              />
+            </a>
             {onOpenCertificate && (
               <button
                 type="button"

@@ -136,6 +136,36 @@
   gap: 0.75rem;
 }
 
+/* NVIDIA Inception Program Badge */
+.nvidia-badge-link {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 0.2rem;
+  border-radius: var(--radius-sm);
+  transition: opacity var(--transition-fast);
+}
+
+.nvidia-badge-link:hover {
+  opacity: 0.75;
+}
+
+.nvidia-badge-img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+.nvidia-badge-link--nav {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .nvidia-badge-link--nav {
+    display: inline-flex;
+  }
+}
+
 .nav-btn-cta {
   display: none;
 }
@@ -1625,6 +1655,21 @@
 @media (min-width: 640px) {
   .footer-bottom-bar {
     flex-direction: row;
+  }
+}
+
+.footer-legal-fineprint {
+  margin-top: 1rem;
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  opacity: 0.6;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .footer-legal-fineprint {
+    text-align: left;
   }
 }
 
