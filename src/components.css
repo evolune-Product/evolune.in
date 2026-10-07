@@ -163,11 +163,11 @@
 .nvidia-strip {
   display: flex;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
 }
 
 .nvidia-strip .nvidia-badge-img {
-  height: 38px;
+  height: 114px;
 }
 
 .nav-btn-cta {
