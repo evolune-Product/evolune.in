@@ -86,13 +86,6 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCertificate }) => {
                 <span>DPIIT Certified</span>
               </button>
             )}
-            <a href="https://flasqo.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm nav-btn-cta">
-              Launch Flasqo
-              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-
             {/* Mobile Toggle Button */}
             <button
               type="button"
@@ -168,15 +161,6 @@ const Navbar: React.FC<NavbarProps> = ({ onOpenCertificate }) => {
                 ★ View DPIIT Recognition
               </button>
             )}
-            <a
-              href="https://flasqo.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary w-full"
-              style={{ fontSize: '0.875rem' }}
-            >
-              Launch Flasqo
-            </a>
           </div>
         </div>
       )}
