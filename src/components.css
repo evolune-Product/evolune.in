@@ -163,7 +163,9 @@
 .nvidia-strip {
   display: flex;
   justify-content: center;
-  padding: 3rem 0;
+  padding: 0.75rem 0;
+  margin-top: -3rem;
+  position: relative;
 }
 
 .nvidia-strip .nvidia-badge-img {
@@ -242,12 +244,12 @@
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  min-height: 90vh;
+  min-height: min(90vh, 820px);
   display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 8rem;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
   overflow: hidden;
   text-align: center;
 }
